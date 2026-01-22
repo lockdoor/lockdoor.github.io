@@ -1423,6 +1423,744 @@
                 </aside>
             </section>
 
+            <!-- ============================================ -->
+            <!-- PART 4: เทคนิคสั่ง AI ให้เก่ง -->
+            <!-- ============================================ -->
+            
+            <!-- Part 4 Cover -->
+            <section class="section-cover" data-background-gradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+                <div style="color: white; text-align: center;">
+                    <div style="font-size: 5em; margin-bottom: 30px;">🎯</div>
+                    <h1 style="color: white; font-size: 3em; margin-bottom: 20px;">Part 4</h1>
+                    <h2 style="color: white; font-size: 2em; font-weight: 400;">เทคนิคสั่ง AI ให้เก่ง</h2>
+                    <p style="font-size: 1.3em; margin-top: 40px; opacity: 0.9;">⏰ เวลา: 13.00 - 14.00 น.</p>
+                </div>
+                <aside class="notes">
+                    เข้าสู่ช่วง Part 4: เทคนิคสั่ง AI ให้เก่ง ครับ
+                </aside>
+            </section>
+
+            <!-- Slide 0: Review Problems from Part 3 -->
+            <section>
+                <h2>ปัญหาที่เราเจอในช่วงเช้า... มาแก้กันเลย!</h2>
+                <div class="slide-warning" style="padding: 20px;">
+                    <h3 style="margin-top: 0;">📝 เปิดสมุดบันทึกปัญหาที่เก็บไว้:</h3>
+                    <div class="two-col" style="margin-top: 20px;">
+                        <div class="col">
+                            <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 15px; margin-bottom: 15px;">
+                                <h4 style="margin-top: 0;">1️⃣ ผลลัพธ์ไม่ตรงที่ต้องการ</h4>
+                                <p style="margin: 0;">→ AI เดาใจเราไม่ถูก</p>
+                            </div>
+                            <div class="card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 15px;">
+                                <h4 style="margin-top: 0;">2️⃣ โทนเสียง / ภาษาไม่เหมาะสม</h4>
+                                <p style="margin: 0;">→ เป็นทางการเกินไป หรือไม่เป็นทางการเกินไป</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 15px; margin-bottom: 15px;">
+                                <h4 style="margin-top: 0;">3️⃣ ความยาวไม่เหมาะสม</h4>
+                                <p style="margin: 0;">→ ยาวเกินไป / สั้นเกินไป</p>
+                            </div>
+                            <div class="card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 15px;">
+                                <h4 style="margin-top: 0;">4️⃣ ไม่รู้จะสั่งแก้ไขยังไง</h4>
+                                <p style="margin: 0;">→ ได้ผลลัพธ์แล้ว แต่ยังไม่พอใจ</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-emphasis" style="margin-top: 20px; padding: 15px;">
+                        <strong>💡 วันนี้เราจะมาแก้ทุกปัญหาด้วยเทคนิค R-G-C-O!</strong>
+                    </div>
+                </div>
+                <aside class="notes">
+                    นี่คือช่วงเวลาที่สำคัญครับ ให้ทุกคนเปิดดูปัญหาที่บันทึกไว้ตอนเช้า เราจะมาแก้ทีละข้อด้วยเทคนิคที่จะเรียนในวันนี้
+                </aside>
+            </section>
+
+            <!-- Slide 1: Why some people get good results -->
+            <section>
+                <h2 style="font-size: 1em;">ทำไมบางคนใช้ AI แล้วได้ผลดี... บางคนไม่ได้?</h2>
+                <div style="text-align: left; max-width: 900px; margin: 0 auto;">
+                    <h3 style="font-size: 0.8em;">🤔 คำถามที่ใครๆ ก็สงสัย:</h3>
+                    <div class="slide-emphasis" style="padding: 20px; margin: 20px 0;">
+                        <p style="font-size: 0.65em; margin: 10px 0;"><strong>AI ไม่ใช่ผู้วิเศษ แต่คือ 'เด็กฝึกงานที่ต้องสั่งงานให้ชัด'</strong></p>
+                    </div>
+                    <h3 style="font-size: 0.8em;">ความลับอยู่ที่ 'Prompt' (คำสั่ง)</h3>
+                    <ul style="font-size: 0.65em; line-height: 1.8;">
+                        <li>สั่งกว้างไป = ผลลัพธ์กว้างเกิน (ใช้งานไม่ได้จริง)</li>
+                        <li>สั่งชัดเจน = ผลลัพธ์พร้อมใช้งานทันที</li>
+                    </ul>
+                    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; margin-top: 20px;">
+                        <h4 style="margin-top: 0; font-size: 0.8em;">💡 เปรียบเทียบ:</h4>
+                        <p style="margin: 0; font-size: 0.65em;">เหมือนการสั่งอาหาร – ถ้าบอกแค่ '<strong>อยากกินข้าว</strong>' กับ '<strong>ข้าวผัดหมู ไม่ใส่พริก เพิ่มไข่ดาว</strong>'</p>
+                        <p style="margin: 10px 0 0 0; font-size: 0.65em;">→ อันไหนจะได้อาหารที่ตรงใจกว่ากัน?</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    ช่วงเช้าเราลองใช้แบบตามใจคิดแล้ว ช่วงบ่ายนี้เราจะมาเรียน 'สูตรลับ' ที่จะทำให้ AI กลายเป็นผู้เชี่ยวชาญในงานของเรากันครับ
+                </aside>
+            </section>
+
+            <!-- Slide 2: R-G-C-O Framework -->
+            <section>
+                <h2 style="font-size: 1.8em; margin-bottom: 15px;">สูตรลับ 4 องค์ประกอบ (R-G-C-O)</h2>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h3 style="font-size: 1.2em; margin-bottom: 12px;">📐 สูตรสำเร็จสำหรับ Prompt ที่ดี:</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0;">
+                        <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 10px;">
+                            <h3 style="margin: 0 0 5px 0; font-size: 0.95em;"><strong>R</strong> = Role (บทบาท)</h3>
+                            <p style="margin: 0; font-size: 0.85em;">→ อยากให้ AI เป็นใคร?</p>
+                        </div>
+                        <div class="card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 10px;">
+                            <h3 style="margin: 0 0 5px 0; font-size: 0.95em;"><strong>G</strong> = Goal (เป้าหมาย)</h3>
+                            <p style="margin: 0; font-size: 0.85em;">→ อยากให้ทำอะไร?</p>
+                        </div>
+                        <div class="card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 10px;">
+                            <h3 style="margin: 0 0 5px 0; font-size: 0.95em;"><strong>C</strong> = Context (บริบท)</h3>
+                            <p style="margin: 0; font-size: 0.85em;">→ มีรายละเอียดอะไรบ้าง?</p>
+                        </div>
+                        <div class="card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 10px;">
+                            <h3 style="margin: 0 0 5px 0; font-size: 0.95em;"><strong>O</strong> = Output (ผลลัพธ์)</h3>
+                            <p style="margin: 0; font-size: 0.85em;">→ อยากได้แบบไหน?</p>
+                        </div>
+                    </div>
+                    <div class="slide-emphasis" style="padding: 8px; font-size: 0.65em; margin-top: 10px;">
+                        <strong>💡 จำง่ายๆ:</strong> ใคร-ทำอะไร-ที่ไหน-แบบไหน
+                    </div>
+                    <ul style="font-size: 0.65em; margin-top: 10px; line-height: 1.6;">
+                        <li>✅ ยิ่งให้รายละเอียดเยอะ → AI ยิ่งทำงานได้แม่นยำ</li>
+                        <li>❌ ให้น้อย → AI ต้องเดา → ผลลัพธ์อาจไม่ตรงใจ</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    นี่คือสูตรลับครับ R-G-C-O ง่ายมากๆ จำแค่ 4 ตัวนี้ ทุกครั้งที่สั่ง AI ให้คิดถึง 4 ข้อนี้ รับรองว่าผลลัพธ์ดีขึ้นแน่นอน
+                </aside>
+            </section>
+
+            <!-- Slide 2.1: R - Role Detail -->
+            <section>
+                <h2 style="font-size: 1.3em; margin-bottom: 5px;">R = Role (บทบาท) - ให้ AI 'รับบท'</h2>
+                <div style="text-align: left; max-width: 900px; margin: 0 auto; font-size: 0.7em;">
+                    <h3 style="font-size: 1em; margin-bottom: 5px;">🎭 Role คืออะไร?</h3>
+                    <p style="font-size: 0.95em; margin: 3px 0;">บอก AI ว่าอยากให้มันเป็น 'ใคร' → AI จะปรับความเชี่ยวชาญและโทนเสียงให้เหมาะสม</p>
+                    
+                    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px; margin: 5px 0;">
+                        <h4 style="margin-top: 0; font-size: 0.9em;">✅ ตัวอย่าง Role ที่ใช้บ่อย:</h4>
+                        <ul style="margin: 0; padding-left: 15px; font-size: 0.85em; line-height: 1.3;">
+                            <li>'คุณคือนักเขียนมืออาชีพ'</li>
+                            <li>'คุณคือผู้เชี่ยวชาญด้านการเงิน'</li>
+                            <li>'คุณคือครูสอนภาษาอังกฤษ'</li>
+                            <li>'คุณคือที่ปรึกษาการตลาด'</li>
+                        </ul>
+                    </div>
+
+                    <div class="two-col" style="margin: 5px 0;">
+                        <div class="col">
+                            <div style="background: #fee; padding: 6px; border-left: 3px solid #ef4444; font-size: 0.85em;">
+                                <strong>❌ ไม่มี Role</strong>
+                                <p style="margin: 2px 0 0 0;">→ AI จะตอบแบบทั่วไป</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div style="background: #efe; padding: 6px; border-left: 3px solid #10b981; font-size: 0.85em;">
+                                <strong>✅ มี Role</strong>
+                                <p style="margin: 2px 0 0 0;">→ AI จะตอบแบบมืออาชีพในสาขานั้นๆ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-emphasis" style="padding: 6px; font-size: 0.85em; margin-top: 5px;">
+                        <strong>💡 เคล็ดลับ:</strong> ยิ่ง Role เฉพาะเจาะจง ผลลัพธ์ยิ่งเจาะลึก
+                    </div>
+                </div>
+                <aside class="notes">
+                    Role เปรียบเหมือนการให้ AI 'สวมหมวก' อาชีพครับ ถ้าเราบอกให้มันเป็นหมอ มันจะพูดแบบหมอ ถ้าบอกให้เป็นครู มันจะพูดแบบครูสอน
+                </aside>
+            </section>
+
+            <!-- Slide 2.2: G - Goal Detail -->
+            <section>
+                <h2 style="font-size: 1.3em; margin-bottom: 5px;">G = Goal (เป้าหมาย) - บอกให้ชัด อยากได้อะไร</h2>
+                <div style="text-align: left; max-width: 900px; margin: 0 auto; font-size: 0.7em;">
+                    <h3 style="font-size: 1em; margin-bottom: 5px;">🎯 Goal คืออะไร?</h3>
+                    <p style="font-size: 0.95em; margin: 3px 0;">บอก AI ว่า 'อยากให้ทำอะไร' ให้ชัดเจนที่สุด</p>
+                    
+                    <div class="card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 8px; margin: 5px 0;">
+                        <h4 style="margin-top: 0; font-size: 0.9em;">✅ คำกริยาที่ใช้บ่อย:</h4>
+                        <ul style="margin: 0; padding-left: 15px; columns: 2; font-size: 0.85em; line-height: 1.3;">
+                            <li>สรุป (รายงาน, การประชุม)</li>
+                            <li>เขียน (อีเมล, รายงาน)</li>
+                            <li>อธิบาย (ศัพท์, แนวคิด)</li>
+                            <li>แปลง (ยากให้ง่าย)</li>
+                            <li>เปรียบเทียบ (A กับ B)</li>
+                            <li>ให้ไอเดีย / Brainstorm</li>
+                        </ul>
+                    </div>
+
+                    <div class="two-col" style="margin: 5px 0;">
+                        <div class="col">
+                            <div style="background: #fee; padding: 6px; border-left: 3px solid #ef4444; font-size: 0.85em;">
+                                <strong>❌ เป้าหมายคลุมเครือ:</strong>
+                                <p style="margin: 2px 0 0 0;">'ช่วยเรื่องรายงาน'<br>→ AI ไม่รู้ว่าจะช่วยยังไง</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div style="background: #efe; padding: 6px; border-left: 3px solid #10b981; font-size: 0.85em;">
+                                <strong>✅ เป้าหมายชัดเจน:</strong>
+                                <p style="margin: 2px 0 0 0;">'สรุปรายงานยอดขาย 10 หน้า เหลือ 1 หน้า'<br>→ AI รู้เป้าหมายแน่ชัด</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Goal สำคัญมากครับ ต้องบอกให้ชัดว่า 'อยากได้อะไร' ถ้าบอกแค่ 'ช่วยหน่อย' AI จะงง แต่ถ้าบอกว่า 'สรุปให้' หรือ 'เขียนให้' AI จะรู้ว่าต้องทำอะไรทันที
+                </aside>
+            </section>
+
+            <!-- Slide 2.3: C - Context Detail -->
+            <section>
+                <h2 style="font-size: 1.3em; margin-bottom: 5px;">C = Context (บริบท) - รายละเอียดคือกุญแจสำคัญ</h2>
+                <div style="text-align: left; max-width: 900px; margin: 0 auto; font-size: 0.65em;">
+                    <h3 style="font-size: 1em; margin-bottom: 5px;">📋 Context คืออะไร?</h3>
+                    <p style="font-size: 0.95em; margin: 3px 0;">ข้อมูลเพิ่มเติมที่ทำให้ AI เข้าใจสถานการณ์ของเรา</p>
+                    
+                    <div class="card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 8px; margin: 5px 0;">
+                        <h4 style="margin-top: 0; font-size: 0.9em;">✅ ควรบอกอะไรบ้าง:</h4>
+                        <ul style="margin: 0; padding-left: 15px; font-size: 0.85em; line-height: 1.3;">
+                            <li><strong>กลุ่มเป้าหมาย:</strong> สำหรับใคร? (ผู้บริหาร, ลูกค้า)</li>
+                            <li><strong>สถานการณ์:</strong> ใช้เมื่อไหร่? (ประชุม, อีเมล)</li>
+                            <li><strong>ข้อจำกัด:</strong> มีข้อจำกัด? (เวลา, งบ)</li>
+                            <li><strong>Background:</strong> ข้อมูลเบื้องหลัง</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="font-size: 0.9em; margin: 5px 0 3px 0;">📊 เปรียบเทียบ:</h4>
+                    <div class="two-col">
+                        <div class="col">
+                            <div style="background: #fee; padding: 5px; border-left: 3px solid #ef4444; margin-bottom: 5px; font-size: 0.85em;">
+                                <strong>❌</strong> 'เขียนอีเมล'<br><small>→ ไม่มี Context</small>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div style="background: #efe; padding: 5px; border-left: 3px solid #10b981; font-size: 0.85em;">
+                                <strong>✅</strong> 'เขียนอีเมลถึงลูกค้าที่ร้องเรียน โดยต้องขอโทษและเสนอแนวทางแก้ไข'<br><small>→ มี Context</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-emphasis" style="padding: 5px; margin-top: 5px; font-size: 0.85em;">
+                        <strong>💡</strong> ยิ่งให้ Context เยอะ → AI ยิ่งเข้าใจเรามากขึ้น
+                    </div>
+                </div>
+                <aside class="notes">
+                    Context นี่สำคัญมากๆ ครับ เหมือนการให้ข้อมูลเบื้องหลังกับคน ยิ่งเราบอก AI ให้รู้ว่า 'ใคร-ทำอะไร-ใช้ในสถานการณ์อะไร' มันยิ่งเข้าใจเรามากขึ้น
+                </aside>
+            </section>
+
+            <!-- Slide 2.4: O - Output Detail -->
+            <section>
+                <h2 style="font-size: 1.3em; margin-bottom: 5px;">O = Output (รูปแบบผลลัพธ์) - ต้องการแบบไหนบอกเลย!</h2>
+                <div style="text-align: left; max-width: 900px; margin: 0 auto; font-size: 0.65em;">
+                    <h3 style="font-size: 1em; margin-bottom: 5px;">📝 Output คืออะไร?</h3>
+                    <p style="font-size: 0.95em; margin: 3px 0;">บอก AI ว่า ต้องการผลลัพธ์ในรูปแบบอะไร</p>
+                    
+                    <h4 style="font-size: 0.9em; margin: 5px 0 3px 0;">✅ ประเภทของ Output:</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin: 5px 0;">
+                        <div class="card" style="padding: 6px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                            <h5 style="margin: 0 0 3px 0; font-size: 0.85em;">1️⃣ รูปแบบการนำเสนอ:</h5>
+                            <ul style="margin: 0; padding-left: 15px; font-size: 0.8em; line-height: 1.3;">
+                                <li>Bullet points</li>
+                                <li>ย่อหน้าต่อเนื่อง</li>
+                                <li>ตาราง</li>
+                                <li>ขั้นตอน</li>
+                            </ul>
+                        </div>
+                        <div class="card" style="padding: 6px; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                            <h5 style="margin: 0 0 3px 0; font-size: 0.85em;">2️⃣ ความยาว:</h5>
+                            <ul style="margin: 0; padding-left: 15px; font-size: 0.8em; line-height: 1.3;">
+                                <li>'ไม่เกิน 3 ข้อ'</li>
+                                <li>'100 คำ'</li>
+                                <li>'1 หน้า A4'</li>
+                            </ul>
+                        </div>
+                        <div class="card" style="padding: 6px; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                            <h5 style="margin: 0 0 3px 0; font-size: 0.85em;">3️⃣ โทนเสียง:</h5>
+                            <ul style="margin: 0; padding-left: 15px; font-size: 0.8em; line-height: 1.3;">
+                                <li>เป็นทางการ / เป็นกันเอง</li>
+                                <li>กระชับ / อบอุ่น</li>
+                                <li>มืออาชีพ</li>
+                            </ul>
+                        </div>
+                        <div class="card" style="padding: 6px; background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">
+                            <h5 style="margin: 0 0 3px 0; font-size: 0.85em;">4️⃣ ระดับภาษา:</h5>
+                            <ul style="margin: 0; padding-left: 15px; font-size: 0.8em; line-height: 1.3;">
+                                <li>ภาษาง่าย / วิชาการ</li>
+                                <li>สำหรับผู้บริหาร</li>
+                                <li>สำหรับเด็ก</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Output นี่เหมือนการบอก AI ว่า 'ให้มาในรูปแบบไหน' ครับ บางคนอยากได้แบบข้อย่อ บางคนอยากได้ตาราง ถ้าเราไม่บอก AI จะเลือกเอง
+                </aside>
+            </section>
+
+            <!-- Slide 3: Before & After Example -->
+            <section>
+                <h2 style="font-size: 1.4em; margin-bottom: 5px;">เห็นความต่างกันเลย! (Before & After)</h2>
+                <div style="max-width: 900px; margin: 0 auto; font-size: 0.7em;">
+                    <h3 style="font-size: 1.1em; margin-bottom: 5px;">🔴 ตัวอย่างที่ 1: งานเขียนรายงาน</h3>
+                    
+                    <div style="background: #fee; padding: 8px; border-left: 3px solid #ef4444; margin: 5px 0;">
+                        <h4 style="margin-top: 0; font-size: 0.9em;">❌ แบบธรรมดา:</h4>
+                        <p style="font-size: 0.9em; margin: 0;">'ช่วยเขียนรายงานยอดขายหน่อย'</p>
+                    </div>
+
+                    <div style="background: #efe; padding: 8px; border-left: 3px solid #10b981;">
+                        <h4 style="margin-top: 0; font-size: 0.9em;">✅ แบบมืออาชีพ (R-G-C-O):</h4>
+                        <div style="font-size: 0.85em; line-height: 1.4;">
+                            <p style="margin: 2px 0;"><strong style="color: #f5576c;">[R]</strong> 'คุณคือหัวหน้าฝ่ายขาย'</p>
+                            <p style="margin: 2px 0;"><strong style="color: #00f2fe;">[G]</strong> 'ช่วยสรุปรายงานยอดขายประจำไตรมาส 3'</p>
+                            <p style="margin: 2px 0;"><strong style="color: #fee140;">[C]</strong> 'โดยเน้นว่ายอดขายเพิ่ม 10% จากสินค้าใหม่ ส่งให้ผู้บริหารดู'</p>
+                            <p style="margin: 2px 0;"><strong style="color: #fed6e3;">[O]</strong> 'สรุป 3 หัวข้อสำคัญ ภาษาทางการ ไม่เกิน 150 คำ'</p>
+                        </div>
+                    </div>
+
+                    <div class="slide-emphasis" style="padding: 8px; margin-top: 5px; font-size: 0.9em;">
+                        <strong>💡 เห็นไหมครับ?</strong> แบบแรก AI ต้องเดา แบบหลัง AI รู้ทุกอย่างที่ต้องทำ!
+                    </div>
+                </div>
+                <aside class="notes">
+                    ลองดูความต่างครับ ถ้าสั่งแบบแรก AI จะเดาใจเราไม่ถูก แต่ถ้าสั่งแบบหลัง เราจะได้สิ่งที่เอาไปวางในสไลด์หรือส่งให้ผู้บริหารได้เลย
+                </aside>
+            </section>
+
+            <!-- Slide 4: Iterative Prompting -->
+            <section>
+                <h2 style="font-size: 1.3em; margin-bottom: 5px;">อย่าเพิ่งพอใจในคำตอบแรก! (การคุยต่อ)</h2>
+                <div style="max-width: 900px; margin: 0 auto; font-size: 0.7em;">
+                    <h3 style="font-size: 1em; margin-bottom: 5px;">🔄 AI เหมือนคน - สั่งแก้ได้ทันที!</h3>
+                    <p style="font-size: 0.9em; margin: 3px 0;">💡 ไม่ต้องเริ่มใหม่ตั้งแต่ต้น แค่สั่งแก้ต่อได้เลย:</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin: 8px 0;">
+                        <div class="card" style="padding: 6px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                            <h4 style="margin: 0 0 3px 0; font-size: 0.85em;">✅ ถ้ายาวเกินไป:</h4>
+                            <p style="margin: 0; font-size: 0.8em;">→ 'ขอแบบสั้นกว่านี้ ไม่เกิน 3 บรรทัด'</p>
+                        </div>
+                        <div class="card" style="padding: 6px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+                            <h4 style="margin: 0 0 3px 0; font-size: 0.85em;">✅ ถ้าโทนเสียงไม่ถูก:</h4>
+                            <p style="margin: 0; font-size: 0.8em;">→ 'สุภาพไป ขอเป็นกันเอง'<br>→ 'ขอแบบเป็นทางการ'</p>
+                        </div>
+                        <div class="card" style="padding: 6px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
+                            <h4 style="margin: 0 0 3px 0; font-size: 0.85em;">✅ ถ้าต้องการเปลี่ยนรูปแบบ:</h4>
+                            <p style="margin: 0; font-size: 0.8em;">→ 'ทำเป็นตาราง'<br>→ 'แบ่งเป็น bullet points'</p>
+                        </div>
+                        <div class="card" style="padding: 6px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white;">
+                            <h4 style="margin: 0 0 3px 0; font-size: 0.85em;">✅ ถ้าต้องการปรับเนื้อหา:</h4>
+                            <p style="margin: 0; font-size: 0.8em;">→ 'เน้นเรื่องงบประมาณ'<br>→ 'ลดรายละเอียดส่วนนี้'</p>
+                        </div>
+                    </div>
+
+                    <div class="slide-emphasis" style="padding: 6px; font-size: 0.85em; margin-top: 5px;">
+                        <strong>🎯 เคล็ดลับ:</strong> คุยกับ AI เหมือนคุยกับเพื่อนร่วมงาน บอกตรงๆ ว่าอยากแก้ตรงไหน
+                    </div>
+                </div>
+                <aside class="notes">
+                    นี่สำคัญมากครับ หลายคนคิดว่า ถ้า AI ตอบมาแล้วไม่ชอบ ต้องเริ่มใหม่ แต่ไม่ใช่! AI เหมือนคนครับ สั่งแก้ได้ทันที
+                </aside>
+            </section>
+
+            <!-- Slide 4.1: Workshop - Fix Part 3 Problems -->
+            <section data-background-color="#7C3AED">
+                <div style="color: white;">
+                    <h2 style="color: white; font-size: 1.2em;">🛠️ Workshop: เอาปัญหาตอนเช้ามาแก้กันเลย!</h2>
+                    <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px;">
+                        <h3 style="color: white; margin-top: 0; font-size: 1em;">⏱️ เวลา: 15 นาที</h3>
+                        
+                        <h4 style="color: white; font-size: 0.9em;">📝 กิจกรรม:</h4>
+                        <ol style="text-align: left; font-size: 0.7em; line-height: 1.4;">
+                            <li>เลือก 1 โจทย์จาก Part 3 ที่คุณทำแล้วไม่พอใจผลลัพธ์</li>
+                            <li>เขียน Prompt ใหม่โดยใช้สูตร R-G-C-O</li>
+                            <li>ลองสั่ง AI อีกครั้งด้วย Prompt ใหม่</li>
+                            <li>เปรียบเทียบผลลัพธ์ (เก่า vs ใหม่)</li>
+                        </ol>
+
+                        <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 10px 0;">
+                            <h4 style="color: white; margin-top: 0; font-size: 0.85em;">📋 ให้ทำตาม Template นี้:</h4>
+                            <div style="text-align: left; font-size: 0.7em;">
+                                <p style="margin: 3px 0;"><strong>[R]</strong> บอก Role ของ AI: _________________</p>
+                                <p style="margin: 3px 0;"><strong>[G]</strong> บอก Goal ที่ชัดเจน: _________________</p>
+                                <p style="margin: 3px 0;"><strong>[C]</strong> ให้ Context / รายละเอียด: _________________</p>
+                                <p style="margin: 3px 0;"><strong>[O]</strong> ระบุ Output ที่ต้องการ: _________________</p>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 0.8em; margin-top: 10px;"><strong>🎯 เป้าหมาย:</strong> ได้ผลลัพธ์ที่ดีกว่าเดิมอย่างเห็นได้ชัด!</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    นี่คือโอกาสให้ผู้เข้าอบรมได้ลอง 'แก้ปัญหาจริง' ที่พวกเขาเจอตอนเช้าครับ ให้เดินไปดูทุกคน ช่วยเหลือใครที่ติด
+                </aside>
+            </section>
+
+            <!-- Slide 4.2: Share Workshop Results -->
+            <section>
+                <h2 style="font-size: 1.1em; margin-bottom: 5px;">เห็นความต่างกันไหม? (Before → After)</h2>
+                <div style="max-width: 900px; margin: 0 auto; font-size: 0.65em;">
+                    <h3 style="font-size: 0.95em; margin-bottom: 5px;">🗣️ เชิญ 2-3 คน แชร์ผลลัพธ์:</h3>
+                    
+                    <div class="two-col" style="margin: 8px 0;">
+                        <div class="col">
+                            <div class="card" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 8px;">
+                                <h4 style="margin-top: 0; font-size: 0.85em;">📊 เปรียบเทียบ:</h4>
+                                <ul style="margin: 0; padding-left: 15px; font-size: 0.8em; line-height: 1.2;">
+                                    <li>ผลลัพธ์เก่า (ช่วงเช้า) → ได้อะไร?</li>
+                                    <li>ผลลัพธ์ใหม่ (ใช้ R-G-C-O) → ดีขึ้นยังไง?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); padding: 8px;">
+                                <h4 style="margin-top: 0; font-size: 0.85em;">❓ คำถามสำหรับผู้แชร์:</h4>
+                                <ol style="margin: 0; padding-left: 15px; font-size: 0.75em; line-height: 1.2;">
+                                    <li>ส่วนไหนของ R-G-C-O ที่ช่วยมากที่สุด?</li>
+                                    <li>ผลลัพธ์ใหม่ ใช้งานได้จริงไหม?</li>
+                                    <li>จะนำเทคนิคนี้ไปใช้กับงานอื่นได้ไหม?</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-emphasis" style="padding: 8px; margin-top: 8px;">
+                        <h4 style="margin-top: 0; font-size: 0.85em;">💡 Key Learning:</h4>
+                        <ul style="margin: 0; padding-left: 15px; font-size: 0.8em; line-height: 1.3;">
+                            <li>→ ความต่างอยู่ที่ความชัดเจนของคำสั่ง</li>
+                            <li>→ ยิ่งให้รายละเอียด ผลลัพธ์ยิ่งดี</li>
+                            <li>→ R-G-C-O ใช้ได้จริง ไม่ใช่แค่ทฤษฎี!</li>
+                        </ul>
+                    </div>
+                </div>
+                <aside class="notes">
+                    นี่คือช่วงเวลาที่สำคัญมากครับ ให้ผู้ที่ได้ผลลัพธ์ดีมาแชร์ เพื่อให้คนอื่นๆ เห็นว่า 'มันได้ผลจริง'
+                </aside>
+            </section>
+
+            <!-- Slide 5: Few-Shot Technique -->
+            <section>
+                <h2 style="font-size: 1em;">เทคนิค 1: ให้ตัวอย่างก่อน (Few-Shot Examples)</h2>
+                <div style="max-width: 900px; margin: 0 auto; text-align: left;">
+                    <h3 style="font-size: 0.8em;">💡 Few-Shot คืออะไร?</h3>
+                    <p style="font-size: 0.65em;">ให้ตัวอย่างกับ AI ก่อนสั่งงาน → AI จะเลียนแบบสไตล์ของเรา</p>
+
+                    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px; margin: 10px 0;">
+                        <h4 style="margin-top: 0; font-size: 0.65em;">⚙️ เมื่อไหร่ควรใช้:</h4>
+                        <ul style="margin: 0; padding-left: 18px; font-size: 0.5em; line-height: 1.3;">
+                            <li>ต้องการรูปแบบเฉพาะที่บรรยายยาก</li>
+                            <li>ต้องการให้ AI เขียนตามสไตล์เรา</li>
+                            <li>ต้องการ format พิเศษ</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="font-size: 0.8em;">✅ ตัวอย่าง:</h4>
+                    <div style="background: #f5f5f5; padding: 10px; border-left: 3px solid #667eea; font-size: 0.5em;">
+                        <p style="margin: 0 0 5px 0;"><strong>Prompt:</strong> 'ช่วยเขียนคำบรรยายสินค้าตามสไตล์นี้:</p>
+                        <p style="margin: 5px 0; padding: 6px; background: white;">ตัวอย่างที่ 1: "กระเป๋าหนัง สไตล์วินเทจ - สำหรับคนที่รักความเรียบง่าย แต่มีสไตล์"</p>
+                        <p style="margin: 5px 0; padding: 6px; background: white;">ตัวอย่างที่ 2: "รองเท้าผ้าใบ สบายเท้า - เพื่อนคู่ใจสำหรับทุกการเดินทาง"</p>
+                        <p style="margin: 5px 0 0 0;">ตอนนี้ช่วยเขียนให้สินค้านี้: นาฬิกาไม้'</p>
+                    </div>
+
+                    <div class="slide-emphasis" style="padding: 8px; margin-top: 8px; font-size: 0.75em;">
+                        <strong>🎯</strong> AI จะเขียนตามสไตล์ที่เราให้ตัวอย่างไป!
+                    </div>
+                </div>
+                <aside class="notes">
+                    Few-Shot นี่เหมือนการบอก AI ว่า 'อยากให้เขียนแบบนี้นะ' โดยเราให้ตัวอย่าง 1-2 ตัว แล้ว AI จะเลียนแบบสไตล์เราครับ
+                </aside>
+            </section>
+
+            <!-- Slide 6: Step-by-Step Technique -->
+            <section>
+                <h2 style="font-size: 1em;">เทคนิค 2: ให้ AI คิดทีละขั้นตอน (Step-by-Step)</h2>
+                <div style="max-width: 900px; margin: 0 auto; text-align: left;">
+                    <h3 style="font-size: 0.8em;">💡 Step-by-Step คืออะไร?</h3>
+                    <p style="font-size: 0.65em;">สั่งให้ AI 'แสดงวิธีคิด' หรือ 'อธิบายเหตุผล' ก่อนให้คำตอบ</p>
+
+                    <div class="two-col" style="margin: 10px 0;">
+                        <div class="col">
+                            <div class="card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 10px;">
+                                <h4 style="margin-top: 0; font-size: 0.65em;">⚙️ เมื่อไหร่ควรใช้:</h4>
+                                <ul style="margin: 0; padding-left: 18px; font-size: 0.65em; line-height: 1.3;">
+                                    <li>งานวิเคราะห์ที่ซับซ้อน</li>
+                                    <li>การแก้ปัญหาที่มีหลายขั้นตอน</li>
+                                    <li>ต้องการเข้าใจเหตุผล ไม่ใช่แค่คำตอบ</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 10px;">
+                                <h4 style="margin-top: 0; font-size: 0.65em;">✅ คำสั่งที่ใช้บ่อย:</h4>
+                                <ul style="margin: 0; padding-left: 18px; font-size: 0.65em; line-height: 1.3;">
+                                    <li>'อธิบายเหตุผลทีละขั้นตอน'</li>
+                                    <li>'แสดงวิธีคิดก่อนให้คำตอบ'</li>
+                                    <li>'วิเคราะห์ทีละประเด็น'</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size: 0.8em;">📊 ตัวอย่าง:</h4>
+                    <div style="background: #f5f5f5; padding: 10px; border-left: 3px solid #4facfe; font-size: 0.65em;">
+                        <p style="margin: 0;"><strong>Prompt:</strong> 'วิเคราะห์ว่า ควรเปิดสาขาใหม่ที่กรุงเทพหรือเชียงใหม่ดีกว่ากัน <strong style="color: #ef4444;">อธิบายเหตุผลทีละขั้นตอน</strong> โดยพิจารณาจาก: ต้นทุน, ฐานลูกค้า, คู่แข่ง'</p>
+                    </div>
+
+                    <div class="slide-emphasis" style="padding: 8px; margin-top: 8px; font-size: 0.6em;">
+                        <strong>🎯</strong> AI จะวิเคราะห์ให้เห็นเป็นขั้นเป็นตอน ไม่ใช่แค่ตอบว่า 'ควรเลือกที่นี่' เฉยๆ
+                    </div>
+                </div>
+                <aside class="notes">
+                    เทคนิคนี้ทำให้ AI คิดละเอียดขึ้นครับ แทนที่จะให้คำตอบมาเลย เราสั่งให้มัน 'แสดงวิธีคิด' ผลลัพธ์ที่ได้จะลึกซึ้งและน่าเชื่อถือกว่า
+                </aside>
+            </section>
+
+            <!-- Slide 7: Constraints Technique -->
+            <section>
+                <h2 style="font-size: 1.2em;">เทคนิค 3: กำหนดข้อจำกัด & สิ่งที่ห้ามทำ</h2>
+                <div style="max-width: 900px; margin: 0 auto; text-align: left; font-size: 0.7em;">
+                    <h3 style="font-size: 1em;">💡 Constraints คืออะไร?</h3>
+                    <p style="font-size: 0.95em;">บอก AI ว่า 'มีข้อจำกัดอะไรบ้าง' และ 'ห้ามทำอะไร'</p>
+
+                    <h4 style="font-size: 0.9em;">⚙️ ประเภทของข้อจำกัด:</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin: 10px 0;">
+                        <div class="card" style="padding: 8px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                            <h5 style="margin: 0 0 5px 0; font-size: 0.85em;">1️⃣ ด้านปริมาณ:</h5>
+                            <ul style="margin: 0; padding-left: 15px; font-size: 0.75em; line-height: 1.3;">
+                                <li>'ไม่เกิน 100 คำ'</li>
+                                <li>'เสนอมาแค่ 3 ข้อ'</li>
+                                <li>'งบไม่เกิน 5,000 บาท'</li>
+                            </ul>
+                        </div>
+                        <div class="card" style="padding: 8px; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                            <h5 style="margin: 0 0 5px 0; font-size: 0.85em;">2️⃣ ด้านเนื้อหา:</h5>
+                            <ul style="margin: 0; padding-left: 15px; font-size: 0.75em; line-height: 1.3;">
+                                <li>'ห้ามใช้ศัพท์เทคนิค'</li>
+                                <li>'ห้ามพูดถึงคู่แข่ง'</li>
+                                <li>'ห้ามใช้คำว่า...'</li>
+                            </ul>
+                        </div>
+                        <div class="card" style="padding: 8px; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                            <h5 style="margin: 0 0 5px 0; font-size: 0.85em;">3️⃣ ด้านสไตล์:</h5>
+                            <ul style="margin: 0; padding-left: 15px; font-size: 0.75em; line-height: 1.3;">
+                                <li>'ห้ามใช้อารมณ์ขัน'</li>
+                                <li>'ห้ามเป็นทางการเกินไป'</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size: 0.9em;">✅ ตัวอย่าง Prompt:</h4>
+                    <div style="background: #f5f5f5; padding: 10px; border-left: 3px solid #7c3aed; font-size: 0.8em;">
+                        <p style="margin: 0;">'ให้ไอเดียกิจกรรมทีมบิลดิ้ง โดย <strong style="color: #ef4444;">งบไม่เกิน 5,000 บาท ห้ามเป็นกิจกรรมที่ต้องออกแรงมาก และต้องทำได้ในออฟฟิศ</strong>'</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Constraints ช่วยให้ AI ไม่เสนออะไรที่เราไม่ต้องการครับ การบอก 'ห้ามทำอะไร' ชัดเจน จะทำให้ผลลัพธ์ตรงใจมากขึ้น
+                </aside>
+            </section>
+
+            <!-- Slide 8: Summary of All Techniques -->
+            <section>
+                <h2 style="font-size: 1.2em;">📚 สรุปเทคนิคทั้งหมด</h2>
+                <div style="max-width: 950px; margin: 0 auto; font-size: 0.7em;">
+                    <div class="two-col" style="margin: 10px 0;">
+                        <div class="col">
+                            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px; height: 100%;">
+                                <h4 style="margin-top: 0; font-size: 0.95em;">✅ เทคนิคหลัก: R-G-C-O</h4>
+                                <ul style="margin: 0; padding-left: 18px; line-height: 1.4; font-size: 0.85em;">
+                                    <li><strong>R</strong> = Role (บทบาท)</li>
+                                    <li><strong>G</strong> = Goal (เป้าหมาย)</li>
+                                    <li><strong>C</strong> = Context (บริบท)</li>
+                                    <li><strong>O</strong> = Output (ผลลัพธ์)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 10px; height: 100%;">
+                                <h4 style="margin-top: 0; font-size: 0.95em;">✅ เทคนิคเสริม:</h4>
+                                <ul style="margin: 0; padding-left: 18px; line-height: 1.4; font-size: 0.85em;">
+                                    <li><strong>Iterative</strong> → สั่งแก้ได้ทันที</li>
+                                    <li><strong>Few-Shot</strong> → ให้ตัวอย่าง</li>
+                                    <li><strong>Step-by-Step</strong> → แสดงวิธีคิด</li>
+                                    <li><strong>Constraints</strong> → กำหนดข้อจำกัด</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 30px; color: #ef4444; font-size: 0.9em;">🎯 ข้อผิดพลาดที่ควรหลีกเลี่ยง:</h4>
+                    <ul style="font-size: 0.8em; line-height: 1.4;">
+                        <li>❌ Prompt กว้างเกินไป → ผลลัพธ์คลุมเครือ</li>
+                        <li>❌ ให้ข้อมูลน้อยเกินไป → AI ต้องเดา</li>
+                        <li>❌ ไม่ระบุรูปแบบ → ได้แบบที่ AI เลือกเอง (อาจไม่ตรงใจ)</li>
+                    </ul>
+
+                    <div class="slide-emphasis" style="padding: 10px; margin-top: 10px; font-size: 0.85em;">
+                        <strong>💡 จำไว้: ยิ่งชัดเจน → ยิ่งได้ผลดี!</strong>
+                    </div>
+                </div>
+                <aside class="notes">
+                    นี่คือสรุปทั้งหมดที่เราเรียนมาครับ R-G-C-O คือหลักใหญ่ ส่วนเทคนิคอื่นๆ เป็นเครื่องมือเสริม
+                </aside>
+            </section>
+
+            <!-- Slide 9: Prompt Templates -->
+            <section>
+                <h2 style="font-size: 0.8em;">💾 สร้าง Prompt Template ของตัวเอง</h2>
+                <div style="max-width: 900px; margin: 0 auto; text-align: left;">
+                    <h3 style="font-size: 0.7em;">💡 Template คืออะไร?</h3>
+                    <p style="font-size: 0.65em;">Prompt สำเร็จรูปที่เก็บไว้ใช้ซ้ำ → ประหยัดเวลามหาศาล!</p>
+
+                    <div class="card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 10px; margin: 10px 0;">
+                        <h4 style="margin-top: 0; font-size: 0.65em;">✅ งานที่ทำซ้ำๆ ควรมี Template:</h4>
+                        <ul style="margin: 0; padding-left: 18px; columns: 2; font-size: 0.5em; line-height: 1.3;">
+                            <li>เขียนอีเมลตอบลูกค้า</li>
+                            <li>สรุปการประชุมประจำสัปดาห์</li>
+                            <li>เขียนรายงานสถานะโปรเจค</li>
+                            <li>Brainstorm ไอเดีย campaign</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="font-size: 0.65em;">📋 ตัวอย่าง Template: 'สรุปการประชุม'</h4>
+                    <div style="background: #f5f5f5; padding: 10px; border-left: 3px solid #667eea; font-size: 0.5em;">
+                        <p style="margin: 0;">[R] คุณคือเลขานุการมืออาชีพ</p>
+                        <p style="margin: 3px 0;">[G] ช่วยสรุป meeting notes</p>
+                        <p style="margin: 3px 0;">[C] จากการประชุม [ชื่อประชุม] วันที่ [วันที่]</p>
+                        <p style="margin: 3px 0;">[O] จัดเป็นหัวข้อ:</p>
+                        <p style="margin: 3px 0 3px 15px;">• วาระที่ประชุม</p>
+                        <p style="margin: 3px 0 3px 15px;">• มติ/ข้อสรุป</p>
+                        <p style="margin: 3px 0 3px 15px;">• Action Items (ใคร-ทำอะไร-เมื่อไหร่)</p>
+                    </div>
+
+                    <div class="slide-emphasis" style="padding: 8px; margin-top: 8px; font-size: 0.5em;">
+                        <strong>💾 เก็บ Template ไว้ที่ไหน?</strong>
+                        → Notes app / Google Docs / Notion / ไฟล์ Text
+                    </div>
+                </div>
+                <aside class="notes">
+                    Template นี่ช่วยประหยัดเวลาได้มากมายครับ ให้นึกถึงงานที่เราทำบ่อยๆ แล้วลองสร้าง Prompt Template ไว้
+                </aside>
+            </section>
+
+            <!-- Slide 10: Workshop 2 - Challenge -->
+            <section data-background-color="#F59E0B">
+                <div style="color: white;">
+                    <h2 style="color: white; font-size: 1.2em;">🎯 Workshop รอบ 2: ใช้ทุกเทคนิคที่เรียนมา!</h2>
+                    <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px;">
+                        <h3 style="color: white; margin-top: 0; font-size: 1em;">⏱️ เวลา: 15 นาที</h3>
+                        
+                        <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 6px; margin: 10px 0;">
+                            <h4 style="color: white; margin-top: 0; font-size: 0.9em;">📝 โจทย์ท้าทาย:</h4>
+                            <p style="font-size: 0.75em; margin: 0;">เขียนอีเมลขอเลื่อนกำหนดส่งงาน</p>
+                            <ul style="text-align: left; margin: 8px 0; font-size: 0.6em; line-height: 1.3;">
+                                <li>ให้เหตุผลที่ดีและสมเหตุสมผล</li>
+                                <li>แต่ต้องไม่ฟังดูแบบหลีกเลี่ยงความรับผิดชอบ</li>
+                                <li>เสนอแผนทางเลือกหรือชดเชย</li>
+                                <li>โทนเสียงมืออาชีพแต่เป็นกันเอง'</li>
+                            </ul>
+                        </div>
+
+                        <h4 style="color: white; font-size: 0.7em;">✅ ให้ใช้:</h4>
+                        <ul style="text-align: left; font-size: 0.6em; line-height: 1.3;">
+                            <li>R-G-C-O ครบทุกข้อ</li>
+                            <li>เทคนิคอื่นๆ ที่เหมาะสม (Constraints, Step-by-Step, etc.)</li>
+                            <li>ถ้าไม่พอใจผลลัพธ์แรก ให้ Iterate (สั่งแก้)</li>
+                        </ul>
+
+                        <p style="font-size: 0.8em; margin-top: 10px;"><strong>🎯 เป้าหมาย:</strong> ได้อีเมลที่พร้อมส่งจริง ไม่ต้องแก้!</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    โจทย์นี้ยากกว่า Workshop รอบแรกนะครับ เพราะมี Constraints หลายข้อ นี่คือโอกาสให้ผู้เข้าอบรมใช้ทุกเทคนิคที่เรียนมา
+                </aside>
+            </section>
+
+            <!-- Slide 11: Share Workshop 2 Results -->
+            <section>
+                <h2 style="font-size: 0.8em;">🏆 Prompt ไหนได้ผลดีที่สุด?</h2>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h3 style="font-size: 0.6em;">🗣️ เชิญ 2-3 คน แชร์:</h3>
+                    <ol style="text-align: left; font-size: 0.5em; line-height: 1.4;">
+                        <li>Prompt ที่เขียน (ใช้เทคนิคอะไรบ้าง)</li>
+                        <li>ผลลัพธ์ที่ได้ (อ่านให้ฟัง)</li>
+                        <li>ปรับแก้อะไรบ้างถึงได้ผลลัพธ์สุดท้าย</li>
+                    </ol>
+
+                    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px; margin: 12px 0;">
+                        <h4 style="margin-top: 0; font-size: 0.6em;">❓ คำถามให้คิด:</h4>
+                        <ul style="margin: 0; padding-left: 18px; font-size: 0.5em; line-height: 1.3;">
+                            <li>เทคนิคไหนที่ช่วยให้ได้ผลลัพธ์ดีขึ้นมากที่สุด?</li>
+                            <li>R-G-C-O ช่วยให้ Prompt ชัดเจนขึ้นยังไง?</li>
+                            <li>มีส่วนไหนที่ยังต้องปรับแก้อีก?</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="font-size: 0.7em;">💡 ข้อสังเกต:</h4>
+                    <ul style="text-align: left; font-size: 0.6em; line-height: 1.4;">
+                        <li>→ Prompt ที่ดี มักจะยาวกว่าที่คิด (แต่ได้ผลลัพธ์ที่ดีกว่า)</li>
+                        <li>→ การใส่ Constraints ช่วยให้ AI ไม่ไปทางที่เราไม่ต้องการ</li>
+                        <li>→ การ Iterate (สั่งแก้) เป็นเรื่องปกติ ไม่ต้องเครียด</li>
+                    </ul>
+
+                    <div class="slide-success" style="padding: 10px; margin-top: 10px; font-size: 0.7em;">
+                        <strong>🎉 ยินดีด้วย! ทุกคนผ่านการฝึกมาแล้ว<br>พร้อมไปใช้กับงานจริงของตัวเองใน Part 5!</strong>
+                    </div>
+                </div>
+                <aside class="notes">
+                    นี่คือช่วงสรุปของ Part 4 ครับ ให้ผู้ที่ทำได้ดีมาแชร์ และให้ทุกคนได้เรียนรู้จากกัน จุดสำคัญคือ ทำให้พวกเขารู้สึกว่า 'ฉันทำได้!'
+                </aside>
+            </section>
+
+            <!-- Slide 12: Part 4 Summary -->
+            <section>
+                <h2 style="font-size: 1em;">✅ สรุป Part 4 → พร้อมไปต่อ Part 5!</h2>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h3 style="font-size: 0.7em;">🎓 สิ่งที่เราได้เรียนรู้ใน Part 4:</h3>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0;">
+                        <div class="card" style="padding: 10px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+                            <h4 style="margin-top: 0; font-size: 0.65em;">1️⃣ สูตร R-G-C-O</h4>
+                            <p style="margin: 0; font-size: 0.55em;">→ หัวใจของการสั่ง AI ให้ได้ผลดี</p>
+                        </div>
+                        <div class="card" style="padding: 10px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
+                            <h4 style="margin-top: 0; font-size: 0.65em;">2️⃣ เทคนิคเสริม 4 ข้อ</h4>
+                            <p style="margin: 0; font-size: 0.55em;">→ Iterative, Few-Shot, Step-by-Step, Constraints</p>
+                        </div>
+                        <div class="card" style="padding: 10px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white;">
+                            <h4 style="margin-top: 0; font-size: 0.65em;">3️⃣ ฝึกปฏิบัติจริง 2 รอบ</h4>
+                            <p style="margin: 0; font-size: 0.55em;">→ แก้ปัญหาจาก Part 3 + ลองโจทย์ท้าทาย</p>
+                        </div>
+                        <div class="card" style="padding: 10px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                            <h4 style="margin-top: 0; font-size: 0.65em;">4️⃣ เรียนรู้จากกัน</h4>
+                            <p style="margin: 0; font-size: 0.55em;">→ เห็น Prompt ที่ดี และผลลัพธ์ที่ได้จริง</p>
+                        </div>
+                    </div>
+
+                    <hr style="border: none; border-top: 1px solid #ddd; margin: 15px 0;">
+
+                    <h3 style="font-size: 0.7em;">🚀 Part 5 เราจะทำอะไร?</h3>
+                    <ul style="text-align: left; font-size: 0.55em; line-height: 1.4;">
+                        <li>→ นำทุกเทคนิคที่เรียนมาใช้กับ <strong>งานจริงของแต่ละคน</strong></li>
+                        <li>→ วิเคราะห์งานในแผนก หางานที่ AI ช่วยได้</li>
+                        <li>→ สร้าง Prompt สำหรับงานจริง และลองใช้ทันที</li>
+                    </ul>
+
+                    <div class="slide-emphasis" style="padding: 10px; margin-top: 12px; font-size: 0.5em;">
+                        <strong>💪 ตอนนี้เราพร้อมแล้ว... ไปลุยกันเลย!</strong>
+                    </div>
+                </div>
+                <aside class="notes">
+                    สรุปสั้นๆ แต่ได้ใจความครับ บอกให้ผู้เข้าอบรมรู้ว่า เราได้เรียนรู้อะไรมาแล้วบ้าง และที่สำคัญ สร้าง Excitement ให้กับ Part 5
+                </aside>
+            </section>
+
         </div>
     </div>
 
