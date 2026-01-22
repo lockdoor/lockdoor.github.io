@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI: เพื่อนใหม่ในที่ทำงาน (AI as Your Co-pilot)</title>
+    
+    <!-- Fonts: Kanit & Prompt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Prompt:wght@300;400;600&family=Fira+Code&display=swap" rel="stylesheet">
+    
+    <!-- Reveal.js Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/white.min.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #2563EB;
+            --primary-light: #3B82F6;
+            --primary-dark: #1E40AF;
+            --secondary: #F59E0B;
+            --secondary-light: #FBBF24;
+            --secondary-dark: #D97706;
+            --accent: #7C3AED;
+            --accent-light: #8B5CF6;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --text-main: #1F2937;
+            --neutral: #6B7280;
+            --bg-alt: #F3F4F6;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #ffffff;
+        }
+
+        .reveal {
+            font-family: 'Prompt', sans-serif;
+            color: var(--text-main);
+        }
+
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+            font-family: 'Kanit', sans-serif;
+            font-weight: 700;
+            text-transform: none;
+            color: var(--primary-dark);
+        }
+
+        .reveal p, .reveal li {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Slide Specific Styles */
+        .section-cover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%) !important;
+            color: white !important;
+        }
+        .section-cover h1, .section-cover h2, .section-cover h3 {
+            color: white !important;
+        }
+
+        .slide-emphasis {
+            background-color: var(--bg-alt);
+            border-left: 6px solid var(--primary);
+            padding: 20px !important;
+            border-radius: 8px;
+        }
+
+        .slide-success {
+            background-color: #ECFDF5;
+            border-left: 6px solid var(--success);
+            padding: 20px !important;
+            border-radius: 8px;
+        }
+
+        .slide-warning {
+            background-color: #FFFBEB;
+            border-left: 6px solid var(--warning);
+            padding: 20px !important;
+            border-radius: 8px;
+        }
+
+        .two-col {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .col {
+            flex: 1;
+        }
+
+        /* Custom Elements */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75em !important;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px;
+            font-weight: 600;
+        }
+        td {
+            border-bottom: 1px solid #ddd;
+            padding: 12px;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        /* Utilities */
+        .text-left { text-align: left; }
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .text-primary { color: var(--primary); }
+        .text-success { color: var(--success); }
+        .text-warning { color: var(--secondary); }
+        .text-error { color: var(--error); }
+        
+        .img-container {
+            max-height: 400px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 20px auto;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+        .img-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Bullet Points */
+        ul.emoji-list {
+            list-style-type: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        ul.emoji-list li {
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        /* Comparison boxes */
+        .comparison-box {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .comparison-box.good {
+            background-color: #ECFDF5;
+            border: 2px solid var(--success);
+        }
+        .comparison-box.bad {
+            background-color: #FEF2F2;
+            border: 2px solid var(--error);
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1: Cover -->
+            <section class="section-cover">
+                <div style="background: rgba(255,255,255,0.1); padding: 50px; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <h1 style="font-size: 2.5em; margin-bottom: 20px;">AI: เพื่อนใหม่ในที่ทำงาน</h1>
+                    <h2 style="font-size: 1.5em;">(AI as Your Co-pilot)</h2>
+                    <hr style="width: 50%; margin: 30px auto; border-color: rgba(255,255,255,0.5);">
+                    <p style="font-size: 1.3em; margin-top: 20px;">เปลี่ยนความสงสัย ให้เป็นพลังในการทำงาน</p>
+                    <p style="font-size: 1em; margin-top: 40px; opacity: 0.9;">
+                        <i class="fas fa-user-friends"></i> สำหรับ: พนักงาน/ผู้เข้าอบรมทั่วไป
+                    </p>
+                </div>
+                
+                <aside class="notes">
+                    สวัสดีครับทุกคน วันนี้เราไม่ได้มาเรียนเรื่องคอมพิวเตอร์ที่ซับซ้อน แต่เรามาทำความรู้จักกับ 'ผู้ช่วยคนใหม่' ที่จะทำให้ชีวิตการทำงานของพวกเราง่ายขึ้น
+                </aside>
+            </section>
+
+            <!-- Slide 2: Agenda -->
+            <section>
+                <h2><i class="fas fa-calendar-alt text-primary"></i> Agenda (กำหนดการ)</h2>
+                <div class="two-col" style="margin-top: 30px;">
+                    <div class="col">
+                        <div class="card" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);">
+                            <h4 class="text-primary"><i class="fas fa-sun"></i> ช่วงเช้า</h4>
+                            <ul class="emoji-list">
+                                <li>🕒 <strong>09.00 – 10.00</strong><br>Part 1: รู้จักกับ AI เบื้องต้น</li>
+                                <li>🕒 <strong>10.00 – 11.00</strong><br>Part 2: รู้จักเครื่องมือ AI ที่จำเป็น</li>
+                                <li>🕒 <strong>11.00 – 12.00</strong><br>Part 3: Workshop แรก – ทดลองใช้ AI</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);">
+                            <h4 class="text-warning"><i class="fas fa-moon"></i> ช่วงบ่าย</h4>
+                            <ul class="emoji-list">
+                                <li>🕒 <strong>13.00 – 14.00</strong><br>Part 4: เทคนิคสั่ง AI ให้เก่ง</li>
+                                <li>🕒 <strong>14.00 – 15.00</strong><br>Part 5: AI กับงานจริงของแต่ละคน</li>
+                                <li>🕒 <strong>15.00 – 16.00</strong><br>Part 6: ใช้ AI อย่างปลอดภัย & สรุป</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    วันนี้เรามีหัวข้อสำคัญๆ ที่จะคุยกัน 6 ส่วนครับ เริ่มตั้งแต่พื้นฐานไปจนถึงการลงมือทำจริง
+                </aside>
+            </section>
+
+            <!-- ========== PART 1: รู้จักกับ AI เบื้องต้น ========== -->
+            
+            <!-- Part 1 Cover -->
+            <section class="section-cover">
+                <h1 style="font-size: 2.8em;">Part 1</h1>
+                <h3 style="font-size: 1.6em; margin-top: 15px;">รู้จักกับ AI เบื้องต้น</h3>
+                <i class="fas fa-robot fa-4x" style="margin-top: 30px; opacity: 0.9;"></i>
+                <p style="font-size: 0.9em; margin-top: 20px; opacity: 0.8;">เวลา: 09.00 - 10.00 น.</p>
+                <aside class="notes">
+                    เข้าสู่ช่วง Part 1: รู้จักกับ AI เบื้องต้น ครับ
+                </aside>
+            </section>
+
+            <!-- Slide 1: AI คืออะไร? -->
+            <section>
+                <h3 style="font-size: 1.4em; margin-bottom: 15px;">AI ไม่ใช่หุ่นยนต์ แต่คือ <span class="text-primary">'ระบบที่เรียนรู้เป็น'</span></h3>
+                <div class="two-col" style="margin-top: 15px;">
+                    <div class="col">
+                        <div class="img-container" style="max-height: 280px;">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI Concept">
+                        </div>
+                    </div>
+                    <div class="col text-left">
+                        <div class="comparison-box bad" style="padding: 10px; margin: 8px 0;">
+                            <h5 style="margin: 0 0 8px 0; font-size: 0.95em;"><strong>👨‍💻 โปรแกรมทั่วไป</strong></h5>
+                            <p style="font-size: 0.8em; margin: 0;">ต้องสั่ง 1-2-3-4 ถึงจะทำตาม<br>(เหมือนทำตามสูตรอาหารเป๊ะๆ)</p>
+                        </div>
+                        <div class="comparison-box good" style="padding: 10px; margin: 8px 0;">
+                            <h5 style="margin: 0 0 8px 0; font-size: 0.95em;"><strong>🧠 AI (ปัญญาประดิษฐ์)</strong></h5>
+                            <p style="font-size: 0.8em; margin: 0;">สอนด้วยตัวอย่าง แล้วให้มันไปคิดต่อเอง<br>(เหมือนสอนเด็ก)</p>
+                        </div>
+                        <div class="slide-emphasis" style="margin-top: 10px; padding: 10px;">
+                            <p style="margin: 0; font-size: 0.85em;"><strong>💡 เปรียบเทียบ:</strong> AI เหมือน <span class="text-primary">'เด็กฝึกงานที่อ่านหนังสือเร็วที่สุดในโลก'</span></p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    ให้มองว่า AI คือน้องฝึกงานที่ขยันมาก อ่านข้อมูลได้เป็นล้านหน้าในเวลาเสร็จวินาที แม้เขาจะไม่ได้ฉลาดกว่าเรา แต่เขาช่วยทุ่นแรงเราได้อย่างมหาศาลครับ
+                </aside>
+            </section>
+
+            <!-- Slide 1.1: ตัวอย่างการทำงานแบบเปรียบเทียบ -->
+            <section>
+                <h3>ลองดูตัวอย่างจริงๆ: <span class="text-primary">การจดจำใบหน้า</span></h3>
+                <div class="two-col" style="margin-top: 30px;">
+                    <div class="col text-left">
+                        <div class="card" style="border-left: 5px solid var(--error); background-color: #FEF2F2;">
+                            <h4 style="color: var(--error);"><i class="fas fa-times-circle"></i> โปรแกรมทั่วไป</h4>
+                            <ul style="font-size: 0.9em; line-height: 1.8;">
+                                <li>• ระบุเงื่อนไขตายตัว: <strong>จมูกยาว 5 ซม. + ตาโต</strong></li>
+                                <li>• ถ้าเปลี่ยนทรงผม / ใส่แว่น → <span style="color: var(--error);">❌ จำไม่ได้!</span></li>
+                                <li>• ต้องตั้งกฎใหม่ทุกครั้ง</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col text-left">
+                        <div class="card" style="border-left: 5px solid var(--success); background-color: #ECFDF5;">
+                            <h4 style="color: var(--success);"><i class="fas fa-check-circle"></i> AI</h4>
+                            <ul style="font-size: 0.9em; line-height: 1.8;">
+                                <li>• ดูรูปหน้าคนเดียวกัน<strong>หลายๆ แบบ</strong> (Learning)</li>
+                                <li>• <strong>เรียนรู้เอง</strong>ว่า 'ลักษณะไหนคือคนคนนี้'</li>
+                                <li>• แม้เปลี่ยนทรงผม, ใส่แว่น → <span style="color: var(--success);">✅ ยังจำได้!</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    นี่คือตัวอย่างที่ชัดเจนครับ เวลา iPhone ของเราปลดล็อกด้วยใบหน้า มันไม่ได้จำว่า 'จมูกต้องยาวเท่านี้' แต่มันเรียนรู้จากหลายๆ มุม หลายๆ แสง จนรู้ว่า 'นี่คือใบหน้าของเจ้าของเครื่อง' นี่คือความฉลาดของ AI ครับ
+                </aside>
+            </section>
+
+            <!-- Slide 1.2: ข้อจำกัดของ AI -->
+            <section>
+                <h3>AI เก่ง... แต่ไม่ใช่เวทมนตร์ 🪄</h3>
+                <div class="two-col" style="margin-top: 30px;">
+                    <div class="col">
+                        <div class="card slide-success">
+                            <h4 class="text-success"><i class="fas fa-check-circle"></i> AI เก่งเรื่อง</h4>
+                            <ul style="font-size: 0.95em; line-height: 1.8;">
+                                <li>✅ หาแพทเทิร์นจากข้อมูลมหาศาล</li>
+                                <li>✅ ประมวลผลเร็วมาก (วินาที)</li>
+                                <li>✅ ทำงานซ้ำๆ ไม่บ่น ไม่เบื่อ</li>
+                                <li>✅ สรุป วิเคราะห์ข้อมูล</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="background-color: #FEF2F2; border-left: 5px solid var(--error);">
+                            <h4 class="text-error"><i class="fas fa-times-circle"></i> AI ไม่เก่งเรื่อง</h4>
+                            <ul style="font-size: 0.95em; line-height: 1.8;">
+                                <li>❌ เข้าใจบริบทเชิงอารมณ์ (EQ)</li>
+                                <li>❌ ความคิดสร้างสรรค์นอกกรอบ</li>
+                                <li>❌ จริยธรรม / ความถูกผิด</li>
+                                <li>❌ ตัดสินใจในเรื่องสำคัญ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-emphasis text-center" style="margin-top: 20px; font-size: 1.1em;">
+                    <strong>💡 สรุป:</strong> AI คือเครื่องมือที่ทรงพลัง แต่ต้องมี <span class="text-primary">'คน'</span> เป็นผู้ใช้งาน
+                </div>
+                <aside class="notes">
+                    เราต้องตั้งความคาดหวังให้ถูกต้องครับ AI ไม่ใช่ซูเปอร์ฮีโร่ที่รู้ทุกอย่าง แต่มันเป็นเครื่องมือที่ยอดเยี่ยมสำหรับงานที่เฉพาะเจาะจง เราไม่ควรให้ AI ตัดสินใจแทนเราในเรื่องสำคัญ แต่ให้มันช่วยเตรียมข้อมูลเพื่อเราจะตัดสินใจได้ดีขึ้น
+                </aside>
+            </section>
+
+            <!-- Slide 1.3: การเรียนรู้ของ AI -->
+            <section>
+                <h3 style="font-size: 1.4em; margin-bottom: 10px;">AI เรียนรู้ได้ยังไง? <span class="text-primary">(3 ขั้นตอนง่ายๆ)</span></h3>
+                <div style="display: flex; gap: 12px; margin-top: 20px; justify-content: center;">
+                    <div class="card" style="flex: 1; max-width: 280px; text-align: center; padding: 15px;">
+                        <div style="font-size: 2em; margin-bottom: 10px; color: var(--primary);">📚</div>
+                        <h4 style="color: var(--primary); margin: 10px 0; font-size: 1em;">1. ให้ข้อมูล (Data)</h4>
+                        <p style="font-size: 0.75em; color: var(--neutral); margin: 5px 0;">เหมือนให้หนังสือแบบเรียน</p>
+                        <p style="font-size: 0.7em; margin-top: 5px;">เช่น: รูปแมว 1 ล้านรูป</p>
+                    </div>
+                    <div class="card" style="flex: 1; max-width: 280px; text-align: center; padding: 15px;">
+                        <div style="font-size: 2em; margin-bottom: 10px; color: var(--primary);">🧠</div>
+                        <h4 style="color: var(--primary); margin: 10px 0; font-size: 1em;">2. ฝึกฝน (Training)</h4>
+                        <p style="font-size: 0.75em; color: var(--neutral); margin: 5px 0;">AI หาความสัมพันธ์เอง</p>
+                        <p style="font-size: 0.7em; margin-top: 5px;">หูแหลม, มีหนวด, สี่ขา = แมว</p>
+                    </div>
+                    <div class="card" style="flex: 1; max-width: 280px; text-align: center; padding: 15px;">
+                        <div style="font-size: 2em; margin-bottom: 10px; color: var(--primary);">📝</div>
+                        <h4 style="color: var(--primary); margin: 10px 0; font-size: 1em;">3. ทดสอบ (Testing)</h4>
+                        <p style="font-size: 0.75em; color: var(--neutral); margin: 5px 0;">ให้ดูรูปใหม่</p>
+                        <p style="font-size: 0.7em; margin-top: 5px;">• ถ้าทายถูก = เรียนรู้สำเร็จ<br>• ถ้าผิดบ่อย = ฝึกใหม่</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    กระบวนการเรียนรู้ของ AI ไม่ได้ซับซ้อนอย่างที่คิดครับ มันคล้ายๆ กับการสอนเด็ก เราให้ตัวอย่างเยอะๆ ให้เขาซึมซับ แล้วเขาก็จะเรียนรู้ได้เอง ความแตกต่างคือ AI เรียนรู้ได้เร็วกว่าเด็กมนุษย์หลายพันเท่า เพราะประมวลผลได้รวดเร็วมาก
+                </aside>
+            </section>
+
+            <!-- Slide 1.4: มินิเกม 'AI vs คน' -->
+            <section data-background-color="#FEF3C7">
+                <h3 class="text-warning" style="font-size: 1.2em; margin-bottom: 10px;"><i class="fas fa-gamepad"></i> มินิเกม: ลองคิดว่าตัวเองเป็น AI</h3>
+                <div class="card" style="margin: 15px auto; max-width: 450px; background: white; padding: 10px;">
+                    <h4 class="text-primary" style="font-size: 0.5em; margin: 5px 0;">🍌 โจทย์: "อันไหนยังเป็นกล้วยอยู่?"</h4>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px;">
+                        <div class="card" style="text-align: center; padding: 8px;">
+                            <div style="font-size: 1.5em;">🍌</div>
+                            <p style="margin-top: 5px; font-size: 0.5em;">กล้วยสุก<br>(ใช่ ✅)</p>
+                        </div>
+                        <div class="card" style="text-align: center; padding: 8px;">
+                            <div style="font-size: 1.5em;">🍌</div>
+                            <p style="margin-top: 5px; font-size: 0.5em;">กล้วยดิบ<br>(ใช่ ✅)</p>
+                        </div>
+                        <div class="card" style="text-align: center; padding: 8px;">
+                            <div style="font-size: 1.5em;">🥧</div>
+                            <p style="margin-top: 5px; font-size: 0.5em;">กล้วยปิ้ง<br>(ไม่ใช่ ❌)</p>
+                        </div>
+                        <div class="card" style="text-align: center; padding: 8px;">
+                            <div style="font-size: 1.5em;">🍞</div>
+                            <p style="margin-top: 5px; font-size: 0.5em;">ขนมปังกล้วย<br>(ไม่ใช่ ❌)</p>
+                        </div>
+                        <div class="card" style="text-align: center; padding: 8px;">
+                            <div style="font-size: 1.5em;">🌳</div>
+                            <p style="margin-top: 5px; font-size: 0.5em;">ต้นกล้วย<br>(ไม่ใช่ ❌)</p>
+                        </div>
+                        <div class="card" style="text-align: center; padding: 8px;">
+                            <div style="font-size: 1.5em;">🍌</div>
+                            <p style="margin-top: 5px; font-size: 0.5em;">กล้วยเขียว<br>(ใช่ ✅)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-emphasis" style="max-width: 600px; margin: 10px auto; font-size: 0.85em; padding: 10px;">
+                    <strong>💡 Key Takeaway:</strong> นี่คือวิธีที่ AI เรียนรู้! จากตัวอย่างหลายๆ แบบ
+                </div>
+                <aside class="notes">
+                    ลองให้ผู้เข้าอบรมมีส่วนร่วมครับ ให้ยกมือตอบว่าอันไหนยังเป็นกล้วยอยู่ อันไหนไม่ใช่ กิจกรรมนี้จะทำให้เข้าใจว่า AI ต้องอาศัยตัวอย่างที่หลากหลาย และต้องเรียนรู้ความแตกต่างระหว่างสิ่งที่คล้ายกัน นี่คือหัวใจของ Machine Learning ครับ
+                </aside>
+            </section>
+
+            <!-- Slide 2: AI รอบตัวเรา -->
+            <section>
+                <h3 style="font-size: 1.4em; margin-bottom: 10px;">เราใช้ AI กันอยู่แล้ว... <span class="text-success">โดยไม่รู้ตัว!</span> 📱</h3>
+                <div class="two-col" style="margin-top: 15px;">
+                    <div class="col">
+                        <div class="card" style="height: 100%; padding: 15px;">
+                            <h5 class="text-primary" style="font-size: 1em; margin-bottom: 10px;"><i class="fas fa-mobile-alt"></i> ในมือถือของเรา:</h5>
+                            <ul style="font-size: 0.8em; line-height: 1.6; margin-top: 8px;">
+                                <li>🔐 <strong>Face ID</strong>: ปลดล็อกด้วยใบหน้า</li>
+                                <li>🗣️ <strong>Siri / Google Assistant</strong>: สั่งงานด้วยเสียง</li>
+                                <li>📷 <strong>โหมดถ่ายรูปอัตโนมัติ</strong>: ตั้งค่าให้ดีที่สุด</li>
+                                <li>⌨️ <strong>แนะนำคำพิมพ์</strong>: ทายคำที่จะพิมพ์ต่อ</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="height: 100%; padding: 15px;">
+                            <h5 class="text-primary" style="font-size: 1em; margin-bottom: 10px;"><i class="fas fa-laptop"></i> ในชีวิตประจำวัน:</h5>
+                            <ul style="font-size: 0.8em; line-height: 1.6; margin-top: 8px;">
+                                <li>📺 <strong>Netflix / YouTube</strong>: แนะนำหนัง/คลิปที่น่าสนใจ</li>
+                                <li>🛒 <strong>Shopee / Lazada</strong>: แนะนำสินค้าที่คุณอาจชอบ</li>
+                                <li>📱 <strong>Facebook / Social Media</strong>: คัดกรองโพสต์ที่สนใจมาให้เห็นก่อน</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    ก่อนที่เราจะกลัว AI ลองดูสิครับว่าในมือถือเรามี AI เต็มไปหมดเลย มันคือเทคโนโลยีที่มาช่วยอำนวยความสะดวกให้เราอยู่แล้วในชีวิตประจำวัน
+                </aside>
+            </section>
+
+            <!-- Slide 3: ล้างความเชื่อผิดๆ -->
+            <section>
+                <h3 style="font-size: 1.4em; margin-bottom: 10px;">เข้าใจ AI ให้ถูกต้อง <span class="text-warning">(Myth-Busting)</span></h3>
+                <table style="margin-top: 15px; font-size: 0.7em;">
+                    <thead>
+                        <tr>
+                            <th style="width: 50%; text-align: left; padding: 8px;">❌ ความเชื่อผิดๆ (Myth)</th>
+                            <th style="width: 50%; text-align: left; padding: 8px;">✅ ความจริง (Reality)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 8px;"><strong>"AI จะมาแย่งงานเรา"</strong></td>
+                            <td style="padding: 8px;">AI มาช่วยให้เราทำงาน<strong>ได้เร็วขึ้น</strong> แต่ยังต้องการคนเพื่อ<strong>ตัดสินใจและตรวจสอบ</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px;"><strong>"ต้องเก่งคอมพิวเตอร์ถึงจะใช้ได้"</strong></td>
+                            <td style="padding: 8px;">ใช้ง่ายมาก! <strong>พิมพ์คำสั่งภาษาคน</strong>ธรรมดา AI ก็เข้าใจแล้ว</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px;"><strong>"AI รู้ทุกอย่าง"</strong></td>
+                            <td style="padding: 8px;">AI ยังมี<strong>ข้อจำกัด</strong> บางเรื่องตอบผิด บางเรื่องไม่รู้ ต้อง<strong>ตรวจสอบเสมอ</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px;"><strong>"ต้องจ่ายเงินเยอะ"</strong></td>
+                            <td style="padding: 8px;">มีเครื่องมือ<strong>ฟรีเยอะมาก</strong> เพียงพอสำหรับใช้งานทั่วไป</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <aside class="notes">
+                    AI ไม่ได้จะมาไล่ใครออกครับ แต่คนที่ใช้ AI เป็น จะทำงานเสร็จเร็วขึ้น มีเวลาเหลือมากขึ้น และนั่นคือเหตุผลที่เรามาเรียนกันวันนี้
+                </aside>
+            </section>
+
+            <!-- กิจกรรมที่ 1: Quiz - หน้าคำถาม -->
+            <section data-background-color="#EFF6FF">
+                <h3 class="text-primary" style="font-size: 1.4em; margin-bottom: 15px;"><i class="fas fa-question-circle"></i> กิจกรรมที่ 1: "อันนี้ใช่ AI ไหม?"</h3>
+                <div class="card" style="margin: 20px auto; max-width: 800px; padding: 20px;">
+                    <h4 class="text-center" style="margin-bottom: 15px; font-size: 1.1em;">⏱️ เวลา: 5-10 นาที</h4>
+                    <div style="font-size: 0.95em;">
+                        <p style="margin-bottom: 15px;"><strong>ข้อไหนเป็น AI ข้อไหนไม่ใช่</strong></p>
+                        <ol style="line-height: 2;">
+                            <li><strong>Google Maps</strong> แนะนำเส้นทางที่เร็วที่สุด</li>
+                            <li>เครื่องคิดเลข บวก ลบ คูณ หาร</li>
+                            <li><strong>Spotify</strong> แนะนำเพลงที่คุณอาจชอบ</li>
+                            <li><strong>Netflix</strong> แนะนำหนังที่ 'น่าจะชอบ'</li>
+                        </ol>
+                    </div>
+                </div>
+                <aside class="notes">
+                    ให้ผู้เข้าอบรมยกมือ หรือตอบพร้อมกัน โดยใช้โจทย์ที่ใกล้ตัว
+                </aside>
+            </section>
+
+            <!-- กิจกรรมที่ 1: เฉลยข้อ 1 -->
+            <section data-background-color="#EFF6FF">
+                <h3 class="text-primary" style="font-size: 1.3em; margin-bottom: 15px;">📍 ข้อ 1: <strong>Google Maps</strong> แนะนำเส้นทางที่เร็วที่สุด</h3>
+                <div class="card slide-success" style="margin: 20px auto; max-width: 700px; padding: 25px; text-align: center;">
+                    <h2 style="color: var(--success); margin: 0 0 20px 0;">✅ ใช่ AI</h2>
+                    <div style="text-align: left; font-size: 0.9em; line-height: 1.8;">
+                        <p style="margin-bottom: 15px;"><strong>🧠 เหตุผล:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>• <strong>เรียนรู้จากข้อมูลจริง:</strong> วิเคราะห์ข้อมูลการจราจรหลายล้านเส้นทาง</li>
+                            <li>• <strong>คาดการณ์อัตโนมัติ:</strong> ทายว่าเส้นทางไหนจะติดหรือไม่ติด</li>
+                            <li>• <strong>ปรับตัวได้:</strong> ถ้าเจออุบัติเหตุ จะแนะนำเส้นทางใหม่ทันที</li>
+                        </ul>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Google Maps ใช้ Machine Learning ในการวิเคราะห์ข้อมูลการจราจร ประมาณเวลาเดินทาง และแนะนำเส้นทางที่ดีที่สุดตามสถานการณ์จริง
+                </aside>
+            </section>
+
+            <!-- กิจกรรมที่ 1: เฉลยข้อ 2 -->
+            <section data-background-color="#EFF6FF">
+                <h3 class="text-primary" style="font-size: 1.3em; margin-bottom: 15px;">🔢 ข้อ 2: เครื่องคิดเลข บวก ลบ คูณ หาร</h3>
+                <div class="card" style="margin: 20px auto; max-width: 700px; padding: 25px; text-align: center; background-color: #FEF2F2; border-left: 6px solid var(--error);">
+                    <h2 style="color: var(--error); margin: 0 0 20px 0;">❌ ไม่ใช่ AI</h2>
+                    <div style="text-align: left; font-size: 0.9em; line-height: 1.8;">
+                        <p style="margin-bottom: 15px;"><strong>🤖 เหตุผล:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>• <strong>ทำตามสูตรตายตัว:</strong> 2+2 จะได้ 4 เสมอ ไม่มีการเรียนรู้</li>
+                            <li>• <strong>ไม่มีการปรับตัว:</strong> ไม่สามารถคาดเดาหรือตัดสินใจเอง</li>
+                            <li>• <strong>เป็นโปรแกรมธรรมดา:</strong> ทำตามคำสั่งที่เขียนไว้แล้วเท่านั้น</li>
+                        </ul>
+                    </div>
+                </div>
+                <aside class="notes">
+                    เครื่องคิดเลขเป็นโปรแกรมธรรมดาที่ทำตามสูตรคณิตศาสตร์ที่กำหนดไว้ ไม่มีการเรียนรู้หรือปรับตัว จึงไม่ใช่ AI
+                </aside>
+            </section>
+
+            <!-- กิจกรรมที่ 1: เฉลยข้อ 3 -->
+            <section data-background-color="#EFF6FF">
+                <h3 class="text-primary" style="font-size: 1.3em; margin-bottom: 15px;">🎵 ข้อ 3: <strong>Spotify</strong> แนะนำเพลงที่คุณอาจชอบ</h3>
+                <div class="card slide-success" style="margin: 20px auto; max-width: 700px; padding: 25px; text-align: center;">
+                    <h2 style="color: var(--success); margin: 0 0 20px 0;">✅ ใช่ AI</h2>
+                    <div style="text-align: left; font-size: 0.9em; line-height: 1.8;">
+                        <p style="margin-bottom: 15px;"><strong>🎧 เหตุผล:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>• <strong>เรียนรู้ความชอบของคุณ:</strong> สังเกตว่าคุณฟังเพลงแนวไหนบ่อย</li>
+                            <li>• <strong>หาแพทเทิร์น:</strong> วิเคราะห์ว่าคนที่ชอบเพลงแบบคุณ มักชอบเพลงอะไรอีก</li>
+                            <li>• <strong>แนะนำแบบเฉพาะบุคคล:</strong> ทุกคนได้รับคำแนะนำที่ไม่เหมือนกัน</li>
+                        </ul>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Spotify ใช้ AI เพื่อวิเคราะห์พฤติกรรมการฟังเพลงของผู้ใช้ และแนะนำเพลงใหม่ที่น่าจะชอบโดยเรียนรู้จากข้อมูลผู้ใช้หลายล้านคน
+                </aside>
+            </section>
+
+            <!-- กิจกรรมที่ 1: เฉลยข้อ 4 -->
+            <section data-background-color="#EFF6FF">
+                <h3 class="text-primary" style="font-size: 1.3em; margin-bottom: 15px;">🎬 ข้อ 4: <strong>Netflix</strong> แนะนำหนังที่ 'น่าจะชอบ'</h3>
+                <div class="card slide-success" style="margin: 20px auto; max-width: 700px; padding: 25px; text-align: center;">
+                    <h2 style="color: var(--success); margin: 0 0 20px 0;">✅ ใช่ AI</h2>
+                    <div style="text-align: left; font-size: 0.9em; line-height: 1.8;">
+                        <p style="margin-bottom: 15px;"><strong>📺 เหตุผล:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>• <strong>จดจำประวัติการดู:</strong> เรียนรู้ว่าคุณชอบหนังแนวไหน นักแสดงคนไหน</li>
+                            <li>• <strong>วิเคราะห์พฤติกรรม:</strong> สังเกตว่าคุณดูหนังไหนจบ หนังไหนดูไม่จบ</li>
+                            <li>• <strong>ทำนายความชอบ:</strong> คาดการณ์ว่าคุณจะชอบหนังเรื่องไหนต่อไป</li>
+                        </ul>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Netflix ใช้ระบบ AI ที่ซับซ้อนมากในการแนะนำหนัง โดยวิเคราะห์ทั้งเนื้อหาหนัง พฤติกรรมการดู และเปรียบเทียบกับผู้ใช้คนอื่นที่มีรสนิยมคล้ายกัน
+                </aside>
+            </section>
+
+            <!-- กิจกรรมที่ 2: แชร์ประสบการณ์ -->
+            <section data-background-color="#F0FDF4">
+                <h3 class="text-success"><i class="fas fa-comments"></i> กิจกรรมที่ 2: แชร์ประสบการณ์</h3>
+                <div class="card" style="margin: 30px auto; max-width: 900px;">
+                    <h4 class="text-center" style="margin-bottom: 25px;">⏱️ เวลา: 10 นาที</h4>
+                    <div style="font-size: 1em;">
+                        <p style="margin-bottom: 20px;"><strong>คำถาม:</strong></p>
+                        <ul style="line-height: 2.2;">
+                            <li>💭 คุณเคยใช้ AI อะไรบ้าง? (ถ้าเคย)</li>
+                            <li>😊 รู้สึกยังไงกับ AI?</li>
+                            <li>🤔 อยากให้ AI ช่วยงานอะไรบ้าง?</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slide-success" style="max-width: 800px; margin: 20px auto; font-size: 1em;">
+                    <strong>🎯 เป้าหมาย:</strong> เพื่อหา Pain point ของพนักงาน และนำไปปรับใช้ใน Workshop ช่วงบ่าย
+                </div>
+                <aside class="notes">
+                    เป้าหมาย: เพื่อหา Pain point ของพนักงาน และนำไปปรับใช้ใน Workshop ช่วงบ่าย
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            plugins: [ RevealNotes ],
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+            width: 1280,
+            height: 720,
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 2.0
+        });
+    </script>
+</body>
+</html>
