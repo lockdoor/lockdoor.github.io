@@ -1,289 +1,96 @@
-# AI for Everyone Workshop 🤖
-## Workshop การใช้ AI ในชีวิตประจำวันและการทำงาน
+# Pitsanu Namnil
 
-![Workshop Duration](https://img.shields.io/badge/Duration-6%20Hours-blue)
-![Language](https://img.shields.io/badge/Language-Thai-green)
-![Level](https://img.shields.io/badge/Level-Beginner-brightgreen)
-
----
-
-## 📋 เกี่ยวกับ Workshop
-
-Workshop นี้เป็นหลักสูตรการอบรม **6 ชั่วโมง** สำหรับบุคคลทั่วไปที่ต้องการเรียนรู้การใช้ AI ในการทำงานและชีวิตประจำวัน โดยไม่ต้องมีพื้นฐานทางเทคนิค เน้นการปฏิบัติจริงและนำไปใช้ได้ทันที
-
-### 🎯 วัตถุประสงค์
-- เข้าใจพื้นฐานของ AI และเครื่องมือ AI ยุคใหม่
-- เรียนรู้เทคนิค Prompt Engineering ที่มีประสิทธิภาพ (R-G-C-O Framework)
-- นำ AI ไปประยุกต์ใช้กับงานจริงของตัวเอง
-- เข้าใจหลักการใช้ AI อย่างปลอดภัยและมีจริยธรรม
-- สามารถประหยัดเวลาทำงาน 3-5 ชั่วโมงต่อสัปดาห์
-
-### 👥 กลุ่มเป้าหมาย
-- พนักงานออฟฟิศทุกระดับ
-- ผู้ที่ต้องการเพิ่มประสิทธิภาพในการทำงาน
-- บุคคลที่สนใจ AI แต่ไม่มีพื้นฐานทางเทคนิค
-- ผู้ที่ต้องการเริ่มต้นใช้ AI แต่ไม่รู้ว่าจะเริ่มจากไหน
+**Location:** Klongtoey, Bangkok, Thailand  
+**Email:** lockdoor@gmail.com  
+**Phone:** 0909401271  
+**GitHub:** [github.com/lockdoor](https://github.com/lockdoor)
 
 ---
 
-## 📚 เนื้อหา Workshop (6 Parts)
+## 👨‍💻 Professional Summary
 
-### **Part 1: AI คืออะไร?** (60 นาที)
-- แนะนำ Workshop และวัตถุประสงค์
-- AI คืออะไร? ทำงานอย่างไร?
-- ทำไม AI ถึงสำคัญในยุคนี้?
-- Ice Breaker Activity
-
-### **Part 2: เครื่องมือ AI** (45 นาที)
-- ภาพรวมเครื่องมือ AI ยอดนิยม (ChatGPT, Gemini, Claude, Perplexity)
-- เปรียบเทียบความแตกต่างและข้อดี-ข้อเสีย
-- แนวทางการเลือกใช้เครื่องมือ
-- ลงทะเบียนและทดลองใช้งาน
-
-### **Part 3: Workshop แรก** (60 นาที)
-- ทดลองใช้ AI กับ 4 งานจริง:
-  1. เขียนอีเมล
-  2. สรุปเอกสาร
-  3. วิเคราะห์ข้อมูล
-  4. แปลภาษา
-- สังเกตปัญหาที่พบบ่อย
-- แบ่งปันผลลัพธ์
-
-### **Part 4: เทคนิค Prompt Engineering** (90 นาที)
-- **R-G-C-O Framework**: กรอบความคิดในการเขียน Prompt ที่ดี
-  - **R** = Role (บทบาท)
-  - **G** = Goal (เป้าหมาย)
-  - **C** = Context (บริบท)
-  - **O** = Output (ผลลัพธ์)
-- เทคนิคขั้นสูง:
-  - Few-Shot Examples (ให้ตัวอย่าง)
-  - Iterative Prompting (ปรับปรุงต่อเนื่อง)
-  - Step-by-Step Instructions
-  - Constraints (กำหนดข้อจำกัด)
-- Workshop: แก้ปัญหาจาก Part 3 ด้วยเทคนิคใหม่
-- Prompt Templates สำเร็จรูป
-
-### **Part 5: AI กับงานจริงของแต่ละคน** (90 นาที)
-- วิเคราะห์งานที่ทำบ่อยและใช้เวลานาน
-- Group Brainstorming: งานที่ AI ช่วยได้
-- Workshop: นำ R-G-C-O ไปใช้กับงานจริง (20 นาที)
-- แบ่งปัน Success Stories
-- วางแผนการนำไปใช้ต่อ
-
-### **Part 6: ใช้ AI อย่างปลอดภัย & สรุป** (75 นาที)
-- **Data Privacy**: ข้อมูลอะไรที่ห้ามบอก AI
-- **AI Ethics**: จริยธรรมในการใช้ AI (โปร่งใส, ยุติธรรม, รับผิดชอบ)
-- **ตรวจสอบทุกครั้ง**: อย่าเชื่อ AI 100%
-- AI Hallucination และกรณีศึกษาจริง
-- ข้อจำกัดของ AI
-- อนาคตของการทำงานกับ AI
-- แผน 30 วันแรก
-- Q&A และปิดท้าย
+Software engineering student at **42 Bangkok** with hands-on experience in IT support, Python development, and AI/ML. Skilled in building automated systems, containerization, and full-stack development. Currently completing AI & Machine Learning bootcamp with focus on Deep Learning, Generative AI (LLMs, RAG), and MLOps deployment.
 
 ---
 
-## 📁 โครงสร้างไฟล์
+## 🎓 Education
 
-```
-ai_workshop/
-├── README.md           # เอกสารนี้
-├── present.html        # ไฟล์งานนำเสนอ (Reveal.js)
-├── pretest.md         # แบบทดสอบก่อนเรียน (10 ข้อ)
-├── posttest.md        # แบบทดสอบหลังเรียน (10 ข้อ)
-└── prompt.json        # โครงสร้างเนื้อหา Workshop (JSON)
-```
+### 42 Bangkok, KMITL
+**Software Engineering Program** | *August 2023 - Present*
 
----
+#### Academic Projects:
 
-## 🚀 วิธีการใช้งาน
+**Inception - Infrastructure as Code**
+- Implemented containerized multi-service architecture using Docker
+- Created custom Docker images based on Debian for WordPress, MariaDB, and Nginx
+- Orchestrated isolated services in reproducible development environment
 
-### 1. เปิดงานนำเสนอ
+**Transcendence - Real-time Web Application**
+- Developed Single Page Application with Django and Django Channels
+- Implemented WebSocket-based real-time chat and multiplayer Pong game
+- Built responsive frontend using Vanilla JavaScript Web Components
 
-**Option A: เปิดไฟล์ HTML โดยตรง**
-```bash
-# เปิดด้วย Browser
-open present.html
-# หรือ
-firefox present.html
-# หรือ
-chrome present.html
-```
+### AI & Machine Learning Bootcamp - 42 Bangkok (PMU-B)
+*August 2024 - December 2024*
 
-**Option B: ใช้ Local Server (แนะนำ)**
-```bash
-# Python 3
-python3 -m http.server 8000
-
-# Node.js
-npx http-server
-
-# แล้วเปิด Browser ไปที่
-http://localhost:8000/present.html
-```
-
-### 2. การนำเสนอ
-
-**Keyboard Shortcuts:**
-- `→` หรือ `Space` - ไปหน้าถัดไป
-- `←` - กลับหน้าก่อนหน้า
-- `Esc` หรือ `O` - ดู Overview ทุกสไลด์
-- `S` - เปิด Speaker View (มี Speaker Notes)
-- `F` - เข้าโหมด Fullscreen
-- `B` - หน่วงหน้าจอเป็นสีดำ
-
-### 3. ทำแบบทดสอบ
-
-**ก่อนเรียน:**
-```bash
-# เปิดไฟล์ markdown หรืออ่านใน text editor
-cat pretest.md
-```
-
-**หลังเรียน:**
-```bash
-cat posttest.md
-```
+- **Machine Learning:** Supervised/Unsupervised learning, feature engineering, model evaluation
+- **Deep Learning:** PyTorch, CNNs, RNN/LSTM, Transfer Learning, Attention mechanisms
+- **Generative AI:** LLM APIs, Prompt Engineering, RAG architecture with vector databases
+- **MLOps:** FastAPI model serving, Docker deployment, monitoring & responsible AI
+- **Capstone Project:** Aspect-Based Sentiment Analysis System
 
 ---
 
-## 💻 ข้อกำหนดของระบบ
+## 🛠️ Skills
 
-### Minimum Requirements
-- **Browser:** Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
-- **Screen Resolution:** 1280x720 ขึ้นไป
-- **Internet:** ไม่จำเป็น (หลังจาก load ครั้งแรกแล้ว)
-
-### Recommended Setup
-- **Screen:** 13 นิ้วขึ้นไป (ออกแบบเพื่อ MacBook Air M1)
-- **Browser:** Chrome หรือ Edge (latest version)
-- **Mode:** Full Screen สำหรับประสบการณ์ที่ดีที่สุด
-
-### Dependencies
-- **Reveal.js 4.5.0** (included via CDN)
-- ไม่ต้องติดตั้งอะไรเพิ่มเติม
+**Languages:** Python, JavaScript, SQL, C, C++  
+**Frameworks:** Django, FastAPI, PyTorch  
+**Tools & Technologies:** Docker, Git, MikroTik, Synology NAS  
+**Data & ML:** Pandas, NumPy, Scikit-learn, Deep Learning, LLMs, RAG  
+**Systems:** Windows, Linux, macOS
 
 ---
 
-## 📊 การทดสอบและประเมินผล
+## 💼 Relevant Experience
 
-### Pre-Test (ก่อนเรียน)
-- **จำนวน:** 10 ข้อ (4 ตัวเลือก)
-- **เวลา:** 10 นาที
-- **วัตถุประสงค์:** ประเมินความรู้พื้นฐานเกี่ยวกับ AI
-- **หัวข้อ:** AI basics, Prompts, ข้อจำกัด, การใช้งาน
+### IT Support Specialist (Outsource)
+*March 2015 - Present*
 
-### Post-Test (หลังเรียน)
-- **จำนวน:** 10 ข้อ (4 ตัวเลือก)
-- **เวลา:** 10 นาที
-- **วัตถุประสงค์:** วัดความเข้าใจหลังจากอบรม
-- **หัวข้อ:** R-G-C-O Framework, เทคนิค Prompt, AI Ethics, Hallucination
+- Provide technical support and troubleshooting for computer systems and networks
+- Manage and maintain IT infrastructure across multiple client sites
+- Support end-users with hardware, software, and network-related issues
+- Ensure system uptime and resolve technical incidents efficiently
 
-### เกณฑ์ความสำเร็จ
-- คะแนน Post-Test ควรสูงกว่า Pre-Test อย่างน้อย **2-3 คะแนน**
-- เป้าหมาย: ผู้เรียนสามารถนำ AI ไปใช้ลดเวลาทำงานได้ **3-5 ชั่วโมง/สัปดาห์**
+### Software Development Intern
+*August 2025*
 
----
+- Developed inventory management system implementing FIFO (First-In-First-Out) methodology for item tracking and stock calculations
+- Applied Domain-Driven Design principles and Test-Driven Development practices, writing clean, maintainable code with comprehensive unit test coverage
+- Deployed the application using Docker on Synology NAS
 
-## 🎨 Design & Technology
+### Python Developer - Stock Management Automation
+*November 2025*
 
-### Framework
-- **Reveal.js 4.5.0** - HTML presentation framework
-- **Viewport:** 1280x720 (16:9 aspect ratio)
-- **Responsive Design:** Optimized for MacBook Air M1 full screen
-
-### Design System
-- **Gradient Backgrounds:** สร้างความน่าสนใจและแบ่งส่วนชัดเจน
-- **Color Coding:**
-  - 🟣 Purple: Roles, Frameworks, Themes
-  - 🔵 Blue: Goals, Tools, Information
-  - 🟡 Yellow: Caution, Tips, Highlights
-  - 🟢 Green: Success, Recommendations
-  - 🔴 Red: Warnings, Critical Points
-- **Layout Patterns:** Grid, Two-column, Cards
-- **Typography:** Optimized font sizes (0.6-1.3em) for readability
+- Developed Python package to automate stock deduction by aggregating daily orders from multiple online platforms into single batch operations
+- Significantly reduced admin workload and processing time through workflow automation
 
 ---
 
-## 🤝 Contributing & Feedback
+## 🎮 Additional Experience
 
-หากคุณมีข้อเสนอแนะหรือพบปัญหา:
-1. เปิด Issue ใน Repository
-2. ส่ง Pull Request พร้อมคำอธิบาย
-3. ติดต่อผู้สร้าง
+### Game Shop Owner & Operator
+*2002 - Present*
 
----
-
-## 📄 License
-
-This project is created for educational purposes.
-
-**การใช้งาน:**
-- ✅ ใช้สำหรับการอบรมภายในองค์กร
-- ✅ ปรับแต่งเนื้อหาให้เหมาะกับบริบทของคุณ
-- ✅ แบ่งปันให้ผู้อื่นเพื่อการศึกษา
-- ⚠️ หากนำไปใช้ในเชิงพาณิชย์ กรุณาแจ้งให้ทราบ
+- Diagnosed and repaired computer hardware and software issues
+- Administered network infrastructure using MikroTik routers
+- Managed cross-platform systems (Windows, Linux, macOS)
+- Provided technical support for gaming equipment and systems
 
 ---
 
-## 🙏 Credits
+## 📫 Get in Touch
 
-### เครื่องมือที่ใช้ในการสร้าง
-- **[Reveal.js](https://revealjs.com/)** - HTML Presentation Framework
-- **[Google Gemini Flash 2.5](https://gemini.google.com/)** - โครงสร้างและเนื้อหาเบื้องต้น
-- **[Claude Sonnet 4.5](https://claude.ai/)** - ขัดเกลาภาษา, ปรับโครงสร้าง, และ Responsive Design
+Feel free to reach out for collaborations or just a chat about tech!
 
-### ความโปร่งใส (Transparency)
-ตามหลักการที่สอนใน Workshop Part 6:
-
-> **"ถ้าใช้ AI ช่วย ควรบอกคนอื่นให้รู้"**
-
-Workshop นี้ใช้ AI ช่วยในการสร้าง:
-- **Prompt JSON:** Gemini Flash 2.5 (เริ่มต้น) → Claude Sonnet 4.5 (ขัดเกลา)
-- **HTML Structure:** Gemini Flash 2.5 (เริ่มต้น) → Claude Sonnet 4.5 (ออกแบบ Responsive)
-
-**บทบาทของมนุษย์:**
-- ✅ กำหนดโครงสร้างและเนื้อหาทั้งหมด
-- ✅ ตรวจสอบความถูกต้องของข้อมูล
-- ✅ ปรับภาษาให้เหมาะสมกับผู้เรียน
-- ✅ ทดสอบการแสดงผลบนหน้าจอจริง
-- ✅ รับผิดชอบเนื้อหาทั้งหมด 100%
-
-**นี่คือตัวอย่างการใช้ AI อย่างมีจริยธรรม: โปร่งใส • ซื่อสัตย์ • รับผิดชอบ**
-
----
-
-## 📞 Contact & Support
-
-หากมีคำถามเกี่ยวกับ Workshop หรือต้องการปรับแต่งเนื้อหา:
-- GitHub Issues: [สร้าง Issue ใหม่](#)
-- Email: [ใส่อีเมลของคุณ]
-- Website: [ใส่เว็บไซต์ถ้ามี]
-
----
-
-## 🎯 เป้าหมายหลังจบ Workshop
-
-หลังจากเรียนจบ Workshop นี้ ผู้เรียนควรสามารถ:
-
-1. ✅ อธิบายพื้นฐาน AI และเครื่องมือยอดนิยมได้
-2. ✅ เขียน Prompt ที่มีประสิทธิภาพด้วย R-G-C-O Framework
-3. ✅ ใช้เทคนิค Few-Shot และ Iterative Prompting
-4. ✅ นำ AI ไปใช้กับงานจริงของตัวเองได้อย่างน้อย 1 งาน
-5. ✅ รู้จักใช้ AI อย่างปลอดภัยและมีจริยธรรม
-6. ✅ ตรวจสอบและรับผิดชอบผลลัพธ์จาก AI
-7. ✅ ประหยัดเวลาทำงาน 3-5 ชั่วโมงต่อสัปดาห์
-8. ✅ มีความมั่นใจในการใช้ AI เป็นผู้ช่วย
-
----
-
-<div align="center">
-
-**"AI ไม่ได้มาทำให้เราตกงาน แต่มาทำให้เราทำงานได้ดีขึ้น"**
-
-**"คนที่ใช้ AI เป็น จะได้เปรียบคนที่ไม่ใช้"**
-
----
-
-Made with ❤️ and 🤖 | January 2026
-
-</div>
+- 📧 Email: lockdoor@gmail.com
+- 💼 GitHub: [@lockdoor](https://github.com/lockdoor)

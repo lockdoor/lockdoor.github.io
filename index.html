@@ -1,728 +1,389 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI: เพื่อนใหม่ในที่ทำงาน (AI as Your Co-pilot)</title>
+    <title>Pitsanu Namnil - Portfolio</title>
     
-    <!-- Fonts: Kanit & Prompt -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Prompt:wght@300;400;600&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     
-    <!-- Reveal.js Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/white.min.css">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
         :root {
-            --primary: #2563EB;
-            --primary-light: #3B82F6;
-            --primary-dark: #1E40AF;
-            --secondary: #F59E0B;
-            --accent: #7C3AED;
-            --success: #10B981;
-            --text-main: #1F2937;
-            --bg-alt: #F3F4F6;
+            --bg-color: #020617; /* Slate 950 */
+            --glass-bg: rgba(15, 23, 42, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.12);
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --accent-color: #10b981; /* Emerald 500 */
+            --accent-gradient: linear-gradient(135deg, #10b981, #0ea5e9);
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Prompt', sans-serif;
-            background-color: #ffffff;
-        }
-
-        .reveal {
-            font-family: 'Prompt', sans-serif;
-            color: var(--text-main);
-        }
-
-        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-            font-family: 'Kanit', sans-serif;
-            font-weight: 700;
-            text-transform: none;
-            color: var(--primary-dark);
-        }
-
-        .reveal p, .reveal li {
-            font-size: 24px;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* Slide Specific Styles */
-        .section-cover {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%) !important;
-            color: white !important;
-        }
-        .section-cover h1, .section-cover h2 {
-            color: white !important;
-        }
-
-        .slide-emphasis {
-            background-color: var(--bg-alt);
-            border-left: 10px solid var(--primary);
-            padding: 20px !important;
+        /* Animated Background */
+        .bg-blobs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: #020617;
         }
 
-        .two-col {
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            animation: float 20s infinite ease-in-out alternate;
+        }
+
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: rgba(16, 185, 129, 0.3); /* Emerald */
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 60vw;
+            height: 60vw;
+            background: rgba(14, 165, 233, 0.2); /* Sky */
+            animation-delay: -5s;
+        }
+        
+        .blob-3 {
+            top: 40%;
+            left: 30%;
+            width: 40vw;
+            height: 40vw;
+            background: rgba(139, 92, 246, 0.15); /* Purple */
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(5%, 10%) scale(1.1); }
+            100% { transform: translate(-5%, 5%) scale(0.9); }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 50px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255,255,255,0.1);
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Loading State */
+        .loader {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            flex-direction: column;
             gap: 20px;
         }
-        .col {
-            flex: 1;
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(16, 185, 129, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s ease-in-out infinite;
         }
 
-        /* Custom Elements */
-        .card {
-            background: white;
-            border-radius: 12px;
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Markdown Styling */
+        .markdown-body {
+            color: var(--text-primary);
+        }
+
+        .markdown-body h1, 
+        .markdown-body h2, 
+        .markdown-body h3, 
+        .markdown-body h4 {
+            margin-top: 2em;
+            margin-bottom: 0.75em;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .markdown-body h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 0;
+            margin-bottom: 0.5em;
+            text-align: center;
+            letter-spacing: -0.04em;
+        }
+
+        .markdown-body h2 {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 0.5em;
+            color: #fff;
+        }
+
+        .markdown-body h3 {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+        }
+
+        .markdown-body p {
+            margin-top: 0;
+            margin-bottom: 1.5em;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .markdown-body ul {
+            margin-top: 0;
+            margin-bottom: 1.5em;
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .markdown-body li {
+            margin-bottom: 0.5em;
+            padding-left: 0.5em;
+        }
+        
+        .markdown-body li::marker {
+            color: var(--accent-color);
+        }
+
+        .markdown-body a {
+            color: var(--accent-color);
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .markdown-body a:hover {
+            color: #34d399;
+            text-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .markdown-body a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #34d399;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .markdown-body a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .markdown-body strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .markdown-body hr {
+            height: 1px;
+            border: none;
+            background: var(--glass-border);
+            margin: 3em 0;
+        }
+
+        /* Enhance specific sections based on the README content */
+        .markdown-body p:first-of-type {
+            text-align: center;
+            font-size: 1.05rem;
+            background: rgba(255, 255, 255, 0.03);
             padding: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            text-align: left;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+            line-height: 2;
+        }
+
+        .markdown-body p:first-of-type strong {
+            color: var(--accent-color);
+            margin-right: 5px;
+            margin-left: 15px;
         }
         
-        .feature-icon {
-            font-size: 2em;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.7em !important;
-        }
-        th {
-            background-color: var(--primary);
-            color: white;
-            padding: 10px;
-        }
-        td {
-            border-bottom: 1px solid #ddd;
-            padding: 10px;
-        }
-        tr:nth-child(even) {background-color: #f2f2f2;}
-
-        /* Utilities */
-        .text-left { text-align: left; }
-        .text-center { text-align: center; }
-        .text-primary { color: var(--primary); }
-        .text-success { color: var(--success); }
-        .text-warning { color: var(--secondary); }
-        
-        .img-container {
-            max-height: 300px;
-            overflow: hidden;
-            border-radius: 12px;
-            margin: 20px auto;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-        }
-        .img-container img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        /* Bullet Points */
-        ul.emoji-list {
-            list-style-type: none;
+        .markdown-body p:first-of-type strong:first-child {
             margin-left: 0;
         }
-        ul.emoji-list li {
-            margin-bottom: 10px;
+
+        /* Hover effects on elements */
+        .markdown-body h3 {
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        
+        .markdown-body h3:hover {
+            transform: translateX(5px);
+        }
+
+        .error-msg {
+            text-align: center;
+            color: #ef4444;
+            padding: 30px;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+            
+            .markdown-body h1 {
+                font-size: 2.5rem;
+            }
+            
+            .markdown-body h2 {
+                font-size: 1.6rem;
+            }
+            
+            .markdown-body p:first-of-type {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .markdown-body p:first-of-type strong {
+                margin-left: 0;
+            }
+            
+            .markdown-body p:first-of-type br {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="reveal">
-        <div class="slides">
+    <!-- Abstract Background -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
 
-            <!-- Slide 1: Cover -->
-            <section class="section-cover">
-                <div style="background: rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; backdrop-filter: blur(5px);">
-                    <h1>AI: เพื่อนใหม่ในที่ทำงาน</h1>
-                    <h2>(AI as Your Co-pilot)</h2>
-                    <hr style="width: 50%; margin: 20px auto; border-color: rgba(255,255,255,0.5);">
-                    <p>เปลี่ยนความสงสัย ให้เป็นพลังในการทำงาน</p>
-                    <p style="font-size: 0.8em; margin-top: 40px;"><i class="fas fa-user-friends"></i> สำหรับพนักงานและผู้เข้าอบรมทั่วไป</p>
-                </div>
-                
-                <aside class="notes">
-                    สวัสดีครับทุกคน วันนี้เราไม่ได้มาเรียนเรื่องคอมพิวเตอร์ที่ซับซ้อน แต่เรามาทำความรู้จักกับ 'ผู้ช่วยคนใหม่' ที่จะทำให้ชีวิตการทำงานของพวกเราง่ายขึ้น
-                </aside>
-            </section>
-
-            <!-- Slide 2: Agenda -->
-            <section>
-                <h2><i class="fas fa-calendar-alt text-primary"></i> Agenda (กำหนดการ)</h2>
-                <div class="two-col">
-                    <div class="col text-left">
-                        <div class="card">
-                            <h4 class="text-primary">ช่วงเช้า</h4>
-                            <ul class="emoji-list">
-                                <li>🕒 09.00 – 10.00: Part 1: รู้จักกับ AI เบื้องต้น</li>
-                                <li>🕒 10.00 – 11.00: Part 2: รู้จักเครื่องมือ AI ที่จำเป็น</li>
-                                <li>🕒 11.00 – 12.00: Part 3: Workshop แรก</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col text-left">
-                        <div class="card">
-                            <h4 class="text-primary">ช่วงบ่าย</h4>
-                            <ul class="emoji-list">
-                                <li>🕒 13.00 – 14.00: Part 4: เทคนิคสั่ง AI ให้เก่ง</li>
-                                <li>🕒 14.00 – 15.00: Part 5: AI กับงานจริง</li>
-                                <li>🕒 15.00 – 16.00: Part 6: ความปลอดภัย & สรุป</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <aside class="notes">วันนี้เรามีหัวข้อสำคัญๆ ที่จะคุยกัน 6 ส่วนครับ เริ่มตั้งแต่พื้นฐานไปจนถึงการลงมือทำจริง</aside>
-            </section>
-
-            <!-- Part 1 Section Cover -->
-            <section class="section-cover">
-                <h1>Part 1</h1>
-                <h3>รู้จักกับ AI เบื้องต้น</h3>
-                <i class="fas fa-robot fa-4x" style="margin-top: 20px;"></i>
-                <aside class="notes">เข้าสู่ช่วง Part 1: รู้จักกับ AI เบื้องต้น ครับ</aside>
-            </section>
-
-            <!-- Slide 1: What is AI -->
-            <section>
-                <h3>AI ไม่ใช่หุ่นยนต์ แต่คือ <span class="text-primary">'ระบบที่เรียนรู้เป็น'</span></h3>
-                <div class="two-col">
-                    <div class="col">
-                        <div class="img-container">
-                            <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=800&q=80" alt="Coding vs AI">
-                        </div>
-                    </div>
-                    <div class="col text-left">
-                        <div class="card" style="border-left: 5px solid #ccc;">
-                            <strong>👨‍💻 โปรแกรมทั่วไป</strong><br>
-                            ต้องสั่ง 1-2-3-4 ถึงจะทำตาม (เหมือนทำตามสูตรอาหารเป๊ะๆ)
-                        </div>
-                        <div class="card" style="border-left: 5px solid var(--primary);">
-                            <strong>🧠 AI (ปัญญาประดิษฐ์)</strong><br>
-                            สอนด้วยตัวอย่าง แล้วให้มันไปคิดต่อเอง
-                        </div>
-                        <p class="slide-emphasis">💡 เปรียบเทียบ: AI เหมือน 'เด็กฝึกงานที่อ่านหนังสือเร็วที่สุดในโลก'</p>
-                    </div>
-                </div>
-                <aside class="notes">ให้มองว่า AI คือน้องฝึกงานที่ขยันมาก อ่านข้อมูลได้เป็นล้านหน้าในเวลาเสร็จวินาที แม้เขาจะไม่ได้ฉลาดกว่าเรา แต่เขาช่วยทุ่นแรงเราได้อย่างมหาศาลครับ</aside>
-            </section>
-
-            <!-- Slide 1.1: Comparison -->
-            <section>
-                <h3>ลองดูตัวอย่างจริงๆ: <span class="text-primary">การจดจำใบหน้า</span></h3>
-                <div class="two-col">
-                    <div class="col text-left">
-                        <h4>❌ โปรแกรมทั่วไป</h4>
-                        <ul>
-                            <li>ระบุเงื่อนไขตายตัว: จมูกยาว 5 ซม. + ตาโต</li>
-                            <li>ถ้าเปลี่ยนทรงผม/ใส่แว่น → <span style="color:red">จำไม่ได้!</span></li>
-                        </ul>
-                    </div>
-                    <div class="col text-left">
-                        <h4>✅ AI</h4>
-                        <ul>
-                            <li>ดูรูปหน้าคนเดียวกันหลายๆ แบบ (Learning)</li>
-                            <li>เรียนรู้เองว่า 'ลักษณะไหนคือคนคนนี้'</li>
-                            <li>เปลี่ยนทรงผม/ใส่แว่น → <span style="color:green">ยังจำได้!</span></li>
-                        </ul>
-                        <div class="img-container" style="height: 150px;">
-                            <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80" alt="Face Recognition">
-                        </div>
-                    </div>
-                </div>
-                <aside class="notes">นี่คือตัวอย่างที่ชัดเจนครับ เวลา iPhone ของเราปลดล็อกด้วยใบหน้า มันไม่ได้จำว่า 'จมูกต้องยาวเท่านี้' แต่มันเรียนรู้จากหลายๆ มุม</aside>
-            </section>
-
-            <!-- Slide 1.2: Reality Check -->
-            <section>
-                <h3>AI เก่ง... แต่ไม่ใช่เวทมนตร์ 🪄</h3>
-                <div class="two-col">
-                    <div class="col">
-                        <div class="card" style="background-color: #ECFDF5;">
-                            <h4 class="text-success"><i class="fas fa-check-circle"></i> AI เก่งเรื่อง</h4>
-                            <ul>
-                                <li>หาแพทเทิร์นจากข้อมูลมหาศาล</li>
-                                <li>ประมวลผลเร็วมาก</li>
-                                <li>ทำงานซ้ำๆ ไม่บ่น</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="background-color: #FEF2F2;">
-                            <h4 style="color: #EF4444;"><i class="fas fa-times-circle"></i> AI ไม่เก่งเรื่อง</h4>
-                            <ul>
-                                <li>เข้าใจบริบทเชิงอารมณ์</li>
-                                <li>ความคิดสร้างสรรค์นอกกรอบ</li>
-                                <li>จริยธรรม / ความถูกผิด</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <p class="slide-emphasis text-center">💡 สรุป: AI คือเครื่องมือที่ทรงพลัง แต่ต้องมี 'คน' เป็นผู้ใช้งาน</p>
-                <aside class="notes">เราต้องตั้งความคาดหวังให้ถูกต้องครับ AI ไม่ใช่ซูเปอร์ฮีโร่ที่รู้ทุกอย่าง แต่เป็นเครื่องมือ</aside>
-            </section>
-
-            <!-- Slide 1.3: How AI Learns -->
-            <section>
-                <h3>AI เรียนรู้ได้ยังไง? (3 ขั้นตอน)</h3>
-                <div style="display: flex; gap: 10px; margin-top: 30px;">
-                    <div class="card col" style="flex:1;">
-                        <div class="feature-icon">📚</div>
-                        <h5>1. ให้ข้อมูล (Data)</h5>
-                        <p style="font-size:0.7em;">เหมือนให้หนังสือแบบเรียน (เช่น รูปแมว 1 ล้านรูป)</p>
-                    </div>
-                    <div class="card col" style="flex:1;">
-                        <div class="feature-icon">🧠</div>
-                        <h5>2. ฝึกฝน (Training)</h5>
-                        <p style="font-size:0.7em;">AI หาความสัมพันธ์เอง (หูแหลม, มีหนวด)</p>
-                    </div>
-                    <div class="card col" style="flex:1;">
-                        <div class="feature-icon">📝</div>
-                        <h5>3. ทดสอบ (Testing)</h5>
-                        <p style="font-size:0.7em;">ให้ดูรูปใหม่ ถ้าทายถูก = เรียนรู้สำเร็จ</p>
-                    </div>
-                </div>
-                <aside class="notes">กระบวนการเรียนรู้ของ AI ไม่ได้ซับซ้อนอย่างที่คิดครับ มันคล้ายๆ กับการสอนเด็ก</aside>
-            </section>
-
-            <!-- Slide 2: AI Around Us -->
-            <section>
-                <h3>เราใช้ AI กันอยู่แล้ว... โดยไม่รู้ตัว! 📱</h3>
-                <div class="two-col">
-                    <div class="col">
-                         <ul class="emoji-list text-left">
-                            <li>🗺️ <strong>Google Maps:</strong> คำนวณเส้นทางรถไม่ติด</li>
-                            <li>🎥 <strong>YouTube / TikTok:</strong> เลือกคลิปที่ถูกใจมาให้</li>
-                            <li>👥 <strong>Social Media:</strong> คัดกรองโพสต์เพื่อนสนิท</li>
-                            <li>🛒 <strong>Shopee/Lazada:</strong> แนะนำสินค้าที่อยากได้</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <div class="img-container">
-                            <img src="https://images.unsplash.com/photo-1512428559087-560fa5ce7d25?auto=format&fit=crop&w=800&q=80" alt="Apps on Phone">
-                        </div>
-                    </div>
-                </div>
-                <aside class="notes">ก่อนที่เราจะกลัว AI ลองดูสิครับว่าในมือถือเรามี AI เต็มไปหมดเลย</aside>
-            </section>
-
-            <!-- Slide 3: Myth Busting -->
-            <section>
-                <h3>เข้าใจ AI ให้ถูกต้อง</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th width="50%">ความเชื่อผิดๆ ❌</th>
-                            <th>ความจริงคือ... ✅</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>AI จะมาแย่งงานเราทั้งหมด</td>
-                            <td>คนที่ใช้ AI เป็น จะมาแทนคนที่ใช้ AI ไม่เป็น</td>
-                        </tr>
-                        <tr>
-                            <td>AI เป็นเรื่องของโปรแกรมเมอร์</td>
-                            <td>AI ยุคนี้ใช้แค่ "การพูดคุย" (ภาษาคน)</td>
-                        </tr>
-                        <tr>
-                            <td>AI รู้ทุกเรื่องและถูกเสมอ</td>
-                            <td>AI เก่งมาก แต่ "มั่ว" ได้ เราต้องตรวจทาน</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <aside class="notes">AI ไม่ได้จะมาไล่ใครออกครับ แต่คนที่ใช้ AI เป็น จะทำงานเสร็จเร็วขึ้น</aside>
-            </section>
-
-            <!-- Activity 1 -->
-            <section data-background-color="#FFFBEB">
-                <h3 class="text-warning"><i class="fas fa-question-circle"></i> กิจกรรม: อันนี้ใช่ AI ไหม?</h3>
-                <div class="card text-left" style="margin: 0 auto; max-width: 800px;">
-                    <ol>
-                        <li>🧮 เครื่องคิดเลข <span class="fragment text-primary">(เฉลย: ไม่ใช่)</span></li>
-                        <li>🔓 สแกนหน้าปลดล็อกมือถือ <span class="fragment text-primary">(เฉลย: ใช่)</span></li>
-                        <li>🏧 ตู้เอทีเอ็ม <span class="fragment text-primary">(เฉลย: ไม่ใช่)</span></li>
-                        <li>🎬 Netflix แนะนำหนัง <span class="fragment text-primary">(เฉลย: ใช่)</span></li>
-                    </ol>
-                </div>
-                <aside class="notes">ให้ผู้เข้าอบรมยกมือ หรือตอบพร้อมกัน โดยใช้โจทย์ที่ใกล้ตัว</aside>
-            </section>
-
-            <!-- Part 2 Section Cover -->
-            <section class="section-cover">
-                <h1>Part 2</h1>
-                <h3>รู้จักเครื่องมือ AI ที่จำเป็น</h3>
-                <i class="fas fa-tools fa-4x" style="margin-top: 20px;"></i>
-                <aside class="notes">เข้าสู่ช่วง Part 2: รู้จักเครื่องมือ AI ที่จำเป็น ครับ</aside>
-            </section>
-
-            <!-- Slide 2: The Big Three -->
-            <section>
-                <h3>เครื่องมือหลักที่ต้องรู้จัก (The Big Three)</h3>
-                <div class="two-col">
-                    <div class="col text-left">
-                        <div class="card" style="border-top: 5px solid #10a37f;">
-                            <strong>🤖 ChatGPT</strong>
-                            <p style="font-size: 0.7em;">เก่งรอบด้าน คุยเก่ง งานเขียนดีเยี่ยม</p>
-                        </div>
-                        <div class="card" style="border-top: 5px solid #4285F4;">
-                            <strong>💎 Gemini (Google)</strong>
-                            <p style="font-size: 0.7em;">เชื่อมต่อ Google Docs/Sheet ข้อมูลเรียลไทม์</p>
-                        </div>
-                        <div class="card" style="border-top: 5px solid #d97757;">
-                            <strong>🧠 Claude</strong>
-                            <p style="font-size: 0.7em;">ภาษาธรรมชาติ วิเคราะห์เอกสารยาวๆ แม่นยำ</p>
-                        </div>
-                    </div>
-                    <div class="col">
-                         <div class="img-container" style="height: 100%;">
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI Logos">
-                        </div>
-                    </div>
-                </div>
-                <aside class="notes">สามตัวนี้เหมือนเป็น 'สมองส่วนกลาง' ครับ งานไหนที่ต้องใช้การคิด การเขียน หรือการสรุป เริ่มต้นที่นี่ก่อนได้เลย</aside>
-            </section>
-
-            <!-- Slide 2.2: Decision Tree -->
-            <section>
-                <h3>แผนที่เลือกเครื่องมือ (Decision Tree)</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>งานที่ต้องทำ</th>
-                            <th>เครื่องมือแนะนำ</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>เขียนอีเมล / รายงานทั่วไป</td>
-                            <td><strong>ChatGPT</strong></td>
-                        </tr>
-                        <tr>
-                            <td>สรุปข้อมูลจาก Google Sheet</td>
-                            <td><strong>Gemini</strong></td>
-                        </tr>
-                        <tr>
-                            <td>วิเคราะห์เอกสาร 20+ หน้า</td>
-                            <td><strong>Claude</strong></td>
-                        </tr>
-                        <tr>
-                            <td>แปลภาษาเชิงธุรกิจ</td>
-                            <td><strong>DeepL</strong></td>
-                        </tr>
-                        <tr>
-                            <td>ถอดเสียงประชุม</td>
-                            <td><strong>Otter.ai / Kheed</strong></td>
-                        </tr>
-                         <tr>
-                            <td>ทำกราฟิก/สไลด์</td>
-                            <td><strong>Canva / Gamma</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <aside class="notes">ตารางนี้สำคัญมากครับ เป็นเหมือน 'แผนที่' ที่จะช่วยให้ตัดสินใจได้</aside>
-            </section>
-
-            <!-- Slide 3.2: Getting Started -->
-            <section>
-                <h3>เริ่มต้นใช้งานยังไง? (Getting Started)</h3>
-                <div class="two-col">
-                    <div class="col text-left">
-                        <ol style="font-size: 0.8em;">
-                            <li>เข้าเว็บไซต์/โหลดแอป</li>
-                            <li>สมัครสมาชิก (Email/Google)</li>
-                            <li>เลือกแพ็กเกจ (เริ่มจากฟรี!)</li>
-                            <li>เริ่มใช้งานทันที</li>
-                        </ol>
-                        <div class="card slide-emphasis">
-                            <h5 class="text-warning">⚠️ ข้อควรระวัง</h5>
-                            <ul style="font-size: 0.7em;">
-                                <li>ใช้อีเมลส่วนตัว (ถ้าไม่มีนโยบายบริษัท)</li>
-                                <li><strong>ห้าม</strong>ใส่ข้อมูลลับในเวอร์ชั่นฟรี</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="img-container">
-                            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="Login Screen">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 4: Prompts for Management/Finance -->
-            <section>
-                <h3>Prompt พร้อมใช้: ผู้บริหาร / การเงิน</h3>
-                <div class="card text-left">
-                    <h5>🎯 สายบริหาร</h5>
-                    <p class="text-primary" style="font-size: 0.7em;">"ช่วยสรุปประชุมวันนี้ เน้นประเด็นสำคัญ 3 ข้อ และ Action Items พร้อมผู้รับผิดชอบ เป็นรูปแบบตาราง"</p>
-                </div>
-                <div class="card text-left">
-                    <h5>💰 สายการเงิน</h5>
-                    <p class="text-primary" style="font-size: 0.7em;">"อธิบายอัตราส่วน Current Ratio ที่ 1.5 ว่าหมายความว่าอย่างไร และดีหรือไม่ดีอย่างไร"</p>
-                </div>
-                <aside class="notes">Prompt เหล่านี้เป็นตัวอย่างที่ใช้ได้จริงครับ</aside>
-            </section>
-
-            <!-- Slide 4.1: Prompts for Admin/HR -->
-            <section>
-                <h3>Prompt พร้อมใช้: ธุรการ / HR</h3>
-                <div class="card text-left">
-                    <h5>📋 สายธุรการ</h5>
-                    <p class="text-primary" style="font-size: 0.7em;">"ร่างอีเมลแจ้งพนักงานเรื่องปิดทำการวันหยุด วันที่ [วันที่] โดยใช้ภาษาสุภาพและกระชับ ไม่เกิน 5 บรรทัด"</p>
-                </div>
-                <div class="card text-left">
-                    <h5>👥 สาย HR</h5>
-                    <p class="text-primary" style="font-size: 0.7em;">"สร้างคำถามสัมภาษณ์งานตำแหน่ง [ตำแหน่ง] จำนวน 10 คำถาม ครอบคลุมทั้ง Skill / Experience / Soft Skills"</p>
-                </div>
-            </section>
-
-             <!-- Part 3 Section Cover -->
-             <section class="section-cover">
-                <h1>Part 3</h1>
-                <h3>Workshop แรก – ทดลองใช้ AI</h3>
-                <i class="fas fa-laptop-code fa-4x" style="margin-top: 20px;"></i>
-                <aside class="notes">เข้าสู่ช่วง Part 3 Workshop ครับ</aside>
-            </section>
-
-            <!-- Slide 1: Workshop Rules -->
-            <section>
-                <h3>กฎเหล็กของ Workshop นี้</h3>
-                <div class="card text-center slide-emphasis">
-                    <h2>"ไม่มีคำว่าผิด... มีแต่คำว่า 'ลองใหม่'"</h2>
-                </div>
-                <ul class="emoji-list text-left" style="margin-left: 20%;">
-                    <li>✅ ลองสั่ง AI ด้วยภาษาของตัวเอง</li>
-                    <li>✅ สังเกตปัญหาที่เจอ (เก็บไว้แก้ช่วงบ่าย)</li>
-                    <li>✅ แชร์ผลลัพธ์กับเพื่อนๆ</li>
-                </ul>
-                <aside class="notes">ต้องทำให้ผู้เข้าอบรมเข้าใจว่า เราไม่ได้คาดหวังความสมบูรณ์แบบ</aside>
-            </section>
-
-            <!-- Slide 2: Task 1 Writing -->
-            <section>
-                <h3>📝 โจทย์ที่ 1: งานเขียน</h3>
-                <p><strong>"ช่วยเขียนอีเมลแจ้งลูกค้าเรื่องขอเลื่อนนัดหมาย"</strong></p>
-                <div class="two-col">
-                    <div class="col card bg-alt">
-                        <h5>🔧 ลองปรับแต่ง:</h5>
-                        <ul>
-                            <li>ระบุเหตุผล (ป่วย, ธุระด่วน)</li>
-                            <li>ระบุโทนเสียง (สุภาพมาก, กันเอง)</li>
-                        </ul>
-                    </div>
-                </div>
-                <p style="margin-top: 20px; font-size: 0.8em;">⏱️ เวลา: 10 นาที</p>
-            </section>
-
-            <!-- Slide 3: Task 2 Summarizing -->
-            <section>
-                <h3>📄 โจทย์ที่ 2: งานสรุป</h3>
-                <p><strong>"สรุปข้อความนี้ให้เหลือ 5 บรรทัด สำหรับอ่านใน Line"</strong></p>
-                <div class="img-container" style="height: 150px;">
-                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80" alt="Meeting Notes">
-                </div>
-                <p style="font-size: 0.8em;">(ให้ใช้ข่าวยาวๆ หรืออีเมลยาวๆ เป็นต้นฉบับ)</p>
-            </section>
-
-            <!-- Part 4 Section Cover -->
-            <section class="section-cover">
-                <h1>Part 4</h1>
-                <h3>เทคนิคสั่ง AI ให้เก่ง (Prompting)</h3>
-                <i class="fas fa-magic fa-4x" style="margin-top: 20px;"></i>
-            </section>
-
-            <!-- Slide 2: R-G-C-O Formula -->
-            <section>
-                <h3>สูตรลับ 4 องค์ประกอบ <span class="text-primary">(R-G-C-O)</span></h3>
-                <div class="two-col">
-                    <div class="col text-left">
-                        <ul class="emoji-list">
-                            <li>🎭 <strong>R = Role (บทบาท)</strong><br>อยากให้ AI เป็นใคร?</li>
-                            <li>🎯 <strong>G = Goal (เป้าหมาย)</strong><br>อยากให้ทำอะไร?</li>
-                        </ul>
-                    </div>
-                    <div class="col text-left">
-                        <ul class="emoji-list">
-                            <li>📋 <strong>C = Context (บริบท)</strong><br>รายละเอียด/สถานการณ์</li>
-                            <li>📝 <strong>O = Output (ผลลัพธ์)</strong><br>รูปแบบที่ต้องการ</li>
-                        </ul>
-                    </div>
-                </div>
-                <p class="slide-emphasis">💡 จำง่ายๆ: ใคร - ทำอะไร - ที่ไหน - แบบไหน</p>
-            </section>
-
-            <!-- Slide 3: Before & After -->
-            <section>
-                <h3>Before & After ✨</h3>
-                <div class="two-col">
-                    <div class="col text-left">
-                        <div class="card" style="border: 2px solid #EF4444;">
-                            <h5 style="color: #EF4444;">❌ แบบธรรมดา</h5>
-                            "ช่วยเขียนรายงานยอดขายหน่อย"
-                        </div>
-                    </div>
-                    <div class="col text-left">
-                        <div class="card" style="border: 2px solid #10B981;">
-                            <h5 style="color: #10B981;">✅ แบบมืออาชีพ</h5>
-                            "<strong>[R]</strong> คุณคือหัวหน้าฝ่ายขาย<br>
-                            <strong>[G]</strong> สรุปยอดขาย Q3<br>
-                            <strong>[C]</strong> เน้นว่ายอดเพิ่ม 10% ส่งให้ผู้บริหาร<br>
-                            <strong>[O]</strong> สรุป 3 ข้อ สั้นๆ ภาษาทางการ"
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 4: Iterative Prompting -->
-            <section>
-                <h3>อย่าเพิ่งพอใจคำตอบแรก! (คุยต่อ)</h3>
-                <div class="img-container" style="max-width: 400px;">
-                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" alt="Chatting">
-                </div>
-                <ul class="emoji-list text-left" style="margin-left: 20%;">
-                    <li>🔄 <strong>ยาวไป:</strong> "ขอสั้นกว่านี้ ไม่เกิน 3 บรรทัด"</li>
-                    <li>🔄 <strong>ทางการไป:</strong> "ขอภาษาที่เป็นกันเองขึ้น"</li>
-                    <li>🔄 <strong>เปลี่ยนรูปแบบ:</strong> "ทำเป็นตารางเปรียบเทียบให้หน่อย"</li>
-                </ul>
-            </section>
-
-            <!-- Part 5 Section Cover -->
-            <section class="section-cover">
-                <h1>Part 5</h1>
-                <h3>AI กับงานจริงของแต่ละคน</h3>
-                <i class="fas fa-briefcase fa-4x" style="margin-top: 20px;"></i>
-            </section>
-
-            <!-- Slide 1: Identify Tasks -->
-            <section>
-                <h3>งานไหนบ้างที่ AI ช่วยเราได้?</h3>
-                <div class="two-col">
-                    <div class="col">
-                        <div class="card text-center">
-                            <div class="feature-icon">🔄</div>
-                            <h5>งานซ้ำๆ (Routine)</h5>
-                        </div>
-                        <div class="card text-center">
-                            <div class="feature-icon">✍️</div>
-                            <h5>งานเขียน (Drafting)</h5>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-center">
-                            <div class="feature-icon">💡</div>
-                            <h5>งานคิด (Brainstorm)</h5>
-                        </div>
-                        <div class="card text-center">
-                            <div class="feature-icon">🗣️</div>
-                            <h5>งานสื่อสาร</h5>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Part 6 Section Cover -->
-            <section class="section-cover">
-                <h1>Part 6</h1>
-                <h3>ใช้ AI อย่างปลอดภัย & สรุป</h3>
-                <i class="fas fa-shield-alt fa-4x" style="margin-top: 20px;"></i>
-            </section>
-
-            <!-- Slide 1: Data Privacy -->
-            <section>
-                <h3 class="text-warning">⚠️ ความลับบริษัท... ห้ามบอก AI!</h3>
-                <div class="two-col">
-                    <div class="col">
-                        <div class="card" style="background: #FEF2F2;">
-                            <h4 style="color: #EF4444;">❌ ห้ามใส่ (Don'ts)</h4>
-                            <ul>
-                                <li>ชื่อ-นามสกุล ลูกค้า/พนักงาน</li>
-                                <li>รหัสผ่าน / บัญชีธนาคาร</li>
-                                <li>ความลับทางการค้า</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="background: #ECFDF5;">
-                            <h4 style="color: #10B981;">✅ ใส่ได้ (Dos)</h4>
-                            <ul>
-                                <li>ข้อมูลสาธารณะ</li>
-                                <li>ข้อมูลสมมติ</li>
-                                <li>เนื้อหาที่ลบชื่อเฉพาะออกแล้ว</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 3: AI + Human -->
-            <section>
-                <h3>พลังทวีคูณ (The Superhuman Factor)</h3>
-                <div style="display: flex; align-items: center; justify-content: center; font-size: 1.5em; margin-top: 40px;">
-                    <div class="text-center">
-                        <i class="fas fa-robot text-primary"></i><br>
-                        AI ทำ (80%)<br>
-                        <span style="font-size: 0.6em;">ความเร็ว, ร่างงาน</span>
-                    </div>
-                    <div style="margin: 0 40px;">+</div>
-                    <div class="text-center">
-                        <i class="fas fa-user text-warning"></i><br>
-                        คนทำ (20%)<br>
-                        <span style="font-size: 0.6em;">ตัดสินใจ, จริยธรรม</span>
-                    </div>
-                </div>
-                <div class="card slide-emphasis text-center" style="margin-top: 40px;">
-                    🚀 สูตรสำเร็จ: <strong>AI ทำเร็ว (Speed) + คนทำดี (Quality)</strong>
-                </div>
-            </section>
-
-            <!-- Slide 6: Key Takeaways -->
-            <section>
-                <h3>5 สิ่งสำคัญที่ต้องจำไป 🎯</h3>
-                <ol class="text-left" style="font-size: 0.8em; margin-left: 10%;">
-                    <li>AI คือเครื่องมือช่วยงาน <strong>ไม่ใช่ทำแทน</strong></li>
-                    <li>สูตร <strong>R-G-C-O</strong> คือกุญแจสำคัญ</li>
-                    <li><strong>ตรวจสอบทุกครั้ง</strong> ก่อนใช้งานจริง</li>
-                    <li>เริ่มจากงานง่าย ค่อยไปยาก</li>
-                    <li>ใช้ AI อย่างมีจริยธรรม และปลอดภัย</li>
-                </ol>
-            </section>
-
-            <!-- Final Slide -->
-            <section class="section-cover">
-                <h1>ขอบคุณครับ 🙏</h1>
-                <h3>พร้อมเริ่มต้นใหม่... วันนี้</h3>
-                <p>"AI ไม่ได้มาแทนที่คน แต่คนที่ใช้ AI จะแทนที่คนที่ไม่ใช้"</p>
-                <div style="margin-top: 40px;">
-                    <p style="font-size: 0.7em;">📧 Contact: [Email] | 📞 Tel: [Number]</p>
-                </div>
-            </section>
-
+    <!-- Main Content Container -->
+    <div class="container">
+        <div id="content" class="markdown-body">
+            <div class="loader">
+                <div class="spinner"></div>
+                <div style="color: var(--text-secondary); font-size: 0.9rem;">Loading Profile...</div>
+            </div>
         </div>
     </div>
 
-    <!-- Reveal.js Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
     <script>
-        Reveal.initialize({
-            hash: true,
-            slideNumber: true,
-            plugins: [ RevealNotes ],
-            controls: true,
-            progress: true,
-            center: true,
-            transition: 'slide' // none/fade/slide/convex/concave/zoom
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentDiv = document.getElementById('content');
+            
+            // Configure marked to handle breaks
+            marked.setOptions({
+                breaks: true,
+                gfm: true
+            });
+
+            // Fetch and render the README.md file
+            fetch('README.md')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to load: ${response.status} ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then(text => {
+                    // Render markdown to HTML
+                    const html = marked.parse(text);
+                    contentDiv.innerHTML = html;
+                    
+                    // Add subtle animation to list items after rendering
+                    const listItems = contentDiv.querySelectorAll('li');
+                    listItems.forEach((li, index) => {
+                        li.style.opacity = '0';
+                        li.style.transform = 'translateY(10px)';
+                        li.style.transition = `all 0.4s ease ${(index % 10) * 0.05 + 0.3}s`;
+                        
+                        setTimeout(() => {
+                            li.style.opacity = '1';
+                            li.style.transform = 'translateY(0)';
+                        }, 50);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching README.md:', error);
+                    contentDiv.innerHTML = `
+                        <div class="error-msg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                            <h2>Unable to load README.md</h2>
+                            <p>If you're viewing this locally (file://), your browser might be blocking the request due to CORS policies.</p>
+                            <p>This page will work perfectly when deployed to GitHub Pages.</p>
+                            <button onclick="window.location.href='README.md'" style="margin-top: 15px; padding: 10px 20px; background: var(--accent-color); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: 'Outfit', sans-serif; font-weight: 600;">View Raw README.md</button>
+                        </div>
+                    `;
+                });
         });
     </script>
 </body>
