@@ -68,8 +68,8 @@ Software engineering student at **42 Bangkok** with hands-on experience in IT su
 - Applied Domain-Driven Design principles and Test-Driven Development practices, writing clean, maintainable code with comprehensive unit test coverage
 - Deployed the application using Docker on Synology NAS
 
-### Python Developer - Stock Management Automation
-*November 2025*
+### IT Support Specialist and Software Developer
+*March 2026 - Present*
 
 - Developed Python package to automate stock deduction by aggregating daily orders from multiple online platforms into single batch operations
 - Significantly reduced admin workload and processing time through workflow automation
